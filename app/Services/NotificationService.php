@@ -42,6 +42,13 @@ class NotificationService
                  . "Content-Type: text/plain; charset=UTF-8\r\n"
                  . "X-Mailer: PHP/" . phpversion() . "\r\n";
 
+        // Enviar también alerta al Topic de México en Telegram
+        try {
+            TelegramAlertService::sendSpamReport($phone, $comment, 'MX');
+        } catch (\Throwable $e) {
+            // Silencioso para no interferir con la petición
+        }
+
         try {
             return @mail($adminEmail, $subject, $message, $headers);
         } catch (\Exception $e) {
