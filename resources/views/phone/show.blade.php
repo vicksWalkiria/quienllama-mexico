@@ -128,6 +128,87 @@
         background: #1eb954;
     }
 
+    /* Social Share Box */
+    .share-alert-box {
+        margin-top: 1.25rem;
+        background: #fffbeb;
+        border: 1.5px solid #fde68a;
+        border-radius: 14px;
+        padding: 1rem 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: left;
+    }
+    .share-alert-header {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+    }
+    .share-alert-header strong {
+        font-size: 0.95rem;
+        color: #92400e;
+        display: block;
+    }
+    .share-alert-header span {
+        font-size: 0.84rem;
+        color: #b45309;
+        display: block;
+    }
+    .share-alert-buttons {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+    }
+    .btn-share {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.55rem 1.1rem;
+        border-radius: 9999px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-share:hover {
+        transform: translateY(-1px);
+    }
+    .btn-share-wa {
+        background: #25d366;
+        box-shadow: 0 2px 6px rgba(37, 211, 102, 0.3);
+    }
+    .btn-share-wa:hover {
+        background: #1ebd58;
+    }
+    .btn-share-tg {
+        background: #0088cc;
+        box-shadow: 0 2px 6px rgba(0, 136, 204, 0.3);
+    }
+    .btn-share-tg:hover {
+        background: #0077b5;
+    }
+    .btn-share-x {
+        background: #0f172a;
+        box-shadow: 0 2px 6px rgba(15, 23, 42, 0.25);
+    }
+    .btn-share-x:hover {
+        background: #1e293b;
+    }
+    .btn-share-copy {
+        background: #ffffff;
+        color: #92400e;
+        border: 1.5px solid #d97706;
+        box-shadow: 0 2px 5px rgba(217, 119, 6, 0.15);
+    }
+    .btn-share-copy:hover {
+        background: #fef3c7;
+    }
+
     /* Content Cards */
     .card {
         background: white;
@@ -320,9 +401,43 @@
                 ⚖️ REPEP PROFECO / REUS
             </a>
 
-            <a href="https://api.whatsapp.com/send?text=Ojo%20con%20el%20tel%C3%A9fono%20{{ urlencode($formatted) }}%20({{ urlencode($phone->location ?: 'M%C3%A9xico') }}).%20Revisa%20los%20reportes:%20{{ urlencode(url()->current()) }}" target="_blank" rel="noopener" class="btn-action btn-wa">
-                💬 Compartir en WhatsApp
-            </a>
+        </div>
+
+        <!-- Alerta para Compartir por Redes Sociales -->
+        <div class="share-alert-box">
+            <div class="share-alert-header">
+                <span style="font-size: 1.6rem; line-height: 1;">📢</span>
+                <div>
+                    <strong>¡Advierte a tus contactos sobre este número!</strong>
+                    <span>Si te marcaron, comparte esta ficha para prevenir fraudes y extorsiones en México.</span>
+                </div>
+            </div>
+            <div class="share-alert-buttons">
+                <a href="https://api.whatsapp.com/send?text={{ urlencode('¡Cuidado! Si te marcan de este número no contestes: ' . $formatted . '. Checa más reportes y denuncias en ' . url()->current()) }}" 
+                   target="_blank" rel="noopener noreferrer" class="btn-share btn-share-wa" 
+                   onclick="trackSocialShare('whatsapp', '{{ $phone->number }}')">
+                    <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.541 1.948.825 2.796.825 3.183 0 5.768-2.586 5.769-5.766.001-3.182-2.585-5.768-5.769-5.768zm0-2.172c4.378 0 7.938 3.559 7.938 7.938 0 4.378-3.56 7.938-7.938 7.938-1.282 0-2.522-.315-3.626-.893l-4.405 1.155 1.176-4.298c-.672-1.168-1.083-2.482-1.083-3.902 0-4.379 3.56-7.938 7.938-7.938z"/></svg>
+                    WhatsApp
+                </a>
+
+                <a href="https://t.me/share/url?url={{ urlencode(url()->current()) }}&text={{ urlencode('¡Cuidado! Si te marcan de este número no contestes: ' . $formatted . '. Checa más reportes y denuncias:') }}" 
+                   target="_blank" rel="noopener noreferrer" class="btn-share btn-share-tg" 
+                   onclick="trackSocialShare('telegram', '{{ $phone->number }}')">
+                    <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                    Telegram
+                </a>
+
+                <a href="https://twitter.com/intent/tweet?text={{ urlencode('¡Cuidado! Si te marcan de este número no contestes: ' . $formatted . '. Checa más reportes y denuncias en ' . url()->current()) }}" 
+                   target="_blank" rel="noopener noreferrer" class="btn-share btn-share-x" 
+                   onclick="trackSocialShare('x_twitter', '{{ $phone->number }}')">
+                    <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    Compartir en 𝕏
+                </a>
+
+                <button type="button" class="btn-share btn-share-copy" id="btnCopyAlert" onclick="shareAlertNative('{{ $phone->number }}', '{{ $formatted }}', '{{ url()->current() }}', '¡Cuidado! Si te marcan de este número no contestes: {{ $formatted }}. Checa más reportes y denuncias en {{ url()->current() }}')">
+                    <span>🔗</span> Compartir Alerta
+                </button>
+            </div>
         </div>
     </div>
 
@@ -486,6 +601,36 @@ function copyNumber(num) {
     navigator.clipboard.writeText(num).then(() => {
         alert('Número copiado al portapapeles: ' + num);
     });
+}
+
+function trackSocialShare(network, phone) {
+    if (typeof window.trackGoal === 'function') {
+        window.trackGoal('share_social', {
+            network: network,
+            phone_number: phone,
+            event_label: network + '_' + phone
+        });
+    }
+}
+
+function shareAlertNative(phone, formatted, url, fullText) {
+    trackSocialShare('native_or_copy', phone);
+    if (navigator.share) {
+        navigator.share({
+            title: '¡Cuidado con el ' + formatted + '!',
+            text: fullText,
+            url: url
+        }).catch(function() {});
+    } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(fullText).then(function() {
+            var btn = document.getElementById('btnCopyAlert');
+            if (btn) {
+                var orig = btn.innerHTML;
+                btn.innerHTML = '✅ ¡Alerta copiada!';
+                setTimeout(function() { btn.innerHTML = orig; }, 2500);
+            }
+        });
+    }
 }
 </script>
 
