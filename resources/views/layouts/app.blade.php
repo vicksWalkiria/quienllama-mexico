@@ -20,8 +20,8 @@
     <meta property="og:image:secure_url" content="{{ asset('images/og-image.png') }}">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1024">
-    <meta property="og:image:height" content="535">
-    <meta property="og:image:alt" content="QuiénLlama México - ¡Identifica y Bloquea el SPAM!">
+    <meta property="og:image:height" content="539">
+    <meta property="og:image:alt" content="QuiénLlama México - ¡Acaba con el SPAM!">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -30,7 +30,7 @@
     <meta name="twitter:title" content="@yield('title', 'Quién Llama México - ¿De quién es este número?')">
     <meta name="twitter:description" content="@yield('meta_description', 'Descubre gratis quién te llama en México. Identificador comunitario de celulares y números fijos, denuncias de extorsión, spam y bancos.')">
     <meta name="twitter:image" content="{{ asset('images/og-image.png') }}">
-    <meta name="twitter:image:alt" content="QuiénLlama México - ¡Identifica y Bloquea el SPAM!">
+    <meta name="twitter:image:alt" content="QuiénLlama México - ¡Acaba con el SPAM!">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}">
