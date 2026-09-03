@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Log;
 class IndexNowService
 {
     const KEY = '6056f71057e94e9f90cf92f349377488';
-    const HOST = 'cl.quienllama.com.es';
+    const HOST = 'mx.quienllama.com.es';
 
     /**
      * Submit a single URL or list of URLs to IndexNow (Bing, Yandex, etc.)
