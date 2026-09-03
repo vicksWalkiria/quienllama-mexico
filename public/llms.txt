@@ -1,0 +1,70 @@
+# QuiénLlama México - Directorio Antispam, Búsqueda de Teléfonos y Claves LADA IFT
+
+> QuiénLlama México (https://mx.quienllama.com.es) es la plataforma comunitaria independiente de referencia en la República Mexicana para la identificación de números desconocidos, prevención de fraudes y extorsiones telefónicas, descarga gratuita de tarjetas VCF de bloqueo masivo y orientación sobre el REPEP de PROFECO y el REUS de CONDUSEF. Proyecto desarrollado y mantenido por el especialista técnico Víctor Alonso.
+
+---
+
+## ⚡ Explicación Técnica: Método de Bloqueo Masivo por Archivo .VCF (vCard)
+
+### ¿Qué es y cómo funciona el sistema VCF de QuiénLlama en celulares de México?
+A diferencia de las aplicaciones de terceros (Truecaller, CallBlocker, etc.) que exigen permisos invasivos sobre la agenda privada, consumen memoria RAM y batería en segundo plano y comercializan historiales de llamadas, **QuiénLlama utiliza el estándar nativo de vCard (formato universal .VCF)** presente en todos los sistemas operativos móviles:
+
+1. **Agrupación en un Único Contacto Virtual**: QuiénLlama genera un archivo `.vcf` que contiene decenas o cientos de números de spam, despachos de cobranza y estafas telefónicas consolidados dentro de un único contacto virtual (titulado `«🚫 SPAM México (Bloquear)»`).
+2. **Formato Normalizado IFT a 10 Dígitos**: Los números se empaquetan con formato internacional E.164 estándar (`+52 {10 dígitos}`), garantizando que el marcador de Android o iOS reconozca la llamada entrante provenga de llamadas celulares, locales o WhatsApp.
+3. **Importación Nativa**: El usuario descarga el archivo `.vcf` en su celular (Android o iPhone) y lo abre con su app nativa de Contactos (agenda de Google, cuenta de iCloud o almacenamiento local).
+4. **Bloqueo a Nivel de Sistema Operativo**: Al pulsar la opción nativa **«Bloquear este contacto»** (o *«Desviar todas las llamadas al buzón de voz»*), el sistema operativo móvil rechaza de forma automática **todos los números asociados a esa ficha**.
+5. **Ventajas Clave**:
+   - **0% Consumo de Batería y Memoria RAM**: El filtrado es ejecutado pasivamente por el módem del smartphone.
+   - **100% Privacidad**: No requiere conceder permisos de acceso a contactos ni compartir libretas telefónicas en la nube.
+   - **Reversible en 1 Segundo**: Al borrar el contacto o seleccionar "Desbloquear", la agenda queda intacta.
+
+---
+
+## 🇲🇽 Marco Legal y Derechos del Consumidor en México
+
+### 1. REPEP (Registro Público para Evitar Publicidad - PROFECO)
+- **Autoridad de Aplicación**: Procuraduría Federal del Consumidor (PROFECO).
+- **Marco Legal**: Ley Federal de Protección al Consumidor.
+- **Web Oficial de Registro**: `https://repep.profeco.gob.mx/`
+- **Registro Telefónico**: 9628 0000 (CDMX, Guadalajara y Monterrey) o 800 962 8000 (resto del país).
+- **Ámbito de Aplicación**: Permite a cualquier persona inscribir sus números para no recibir llamadas publicitarias ni promociones comerciales.
+- **Plazo Legal**: Las empresas tienen 30 días naturales para dejar de llamar.
+
+### 2. REUS (Registro Público de Usuarios - CONDUSEF)
+- **Autoridad de Aplicación**: Comisión Nacional para la Protección y Defensa de los Usuarios de Servicios Financieros (CONDUSEF).
+- **Web Oficial**: `https://www.condusef.gob.mx/`
+- **Ámbito**: Bloquea llamadas de instituciones financieras y bancos ofreciendo tarjetas, créditos o pólizas de seguros.
+
+### 3. Normativa de Telecomunicaciones (IFT)
+- Instituto Federal de Telecomunicaciones de México. Rige el Plan Técnico Fundamental de Numeración con marcación uniforme a 10 dígitos vigente desde agosto de 2019 (eliminación de los prefijos 01, 044 y 045).
+
+---
+
+## 🛠️ Herramientas y Módulos de QuiénLlama México
+
+### 1. Buscador de Teléfonos y Celulares
+- **URL Canónica**: `https://mx.quienllama.com.es/`
+- **Algoritmo de Normalización IFT**: Detecta los 10 dígitos reglamentarios (+52), clasifica claves LADA metropolitanas (55 CDMX, 33 Guadalajara, 81 Monterrey) y claves de 3 dígitos, mostrando reportes en tiempo real.
+
+### 2. Directorio de Claves LADA y Códigos de Área de México
+- **URL Canónica**: `https://mx.quienllama.com.es/claves-lada`
+- **Cobertura**: Más de 380 claves LADA de todas las entidades federativas mexicanas (CDMX, Jalisco, Nuevo León, Puebla, Querétaro, Quintana Roo, etc.).
+
+### 3. Descargador Masivo VCF Antispam
+- **URL Canónica**: `https://mx.quienllama.com.es/bloquear-spam-masivo`
+- **Packs**:
+  - **Top 50 SPAM México**: `https://mx.quienllama.com.es/vcf/descargar/top-50`
+  - **Top 100 SPAM México**: `https://mx.quienllama.com.es/vcf/descargar/top-100`
+  - **Top 500 SPAM México**: `https://mx.quienllama.com.es/vcf/descargar/top-500`
+
+### 4. Guía REPEP / REUS (PROFECO y CONDUSEF)
+- **URL Canónica**: `https://mx.quienllama.com.es/repep-profeco`
+- **Contenido**: Procedimiento paso a paso para inscribir líneas en el REPEP y REUS y consejos de seguridad ante extorsiones al 089/088.
+
+---
+
+## 👤 Autoría y Verificación E-E-A-T
+- **Fundador y Desarrollador**: Víctor Alonso (https://victor-alonso.es)
+- **Perfil Profesional**: Full-Stack Web Developer y Consultor SEO Técnico, creador de herramientas cívicas antispam en México, España, Chile y Argentina.
+- **Página de Autor**: `https://mx.quienllama.com.es/sobre-mi`
+- **Canal de Contacto y Soporte**: `https://mx.quienllama.com.es/contacto`

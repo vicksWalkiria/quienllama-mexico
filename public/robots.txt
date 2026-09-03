@@ -1,0 +1,33 @@
+#  ____________________________________________________________________
+# |                                                                    |
+# |    ___        _  __         _     _                                |
+# |   / _ \ _  _ (_)/_/ ___ _  | |   | |__ _ _ __  __ _                |
+# |  | (_) | || || / -_) '  \  | |___| / _` | '  \/ _` |               |
+# |   \__\_\\_,_||_\___|_|_|_| |_____|_\__,_|_|_|_\__,_| 🇲🇽 México     |
+# |                                                                    |
+# |       .---.                                                        |
+# |      /     \     ¡Hola, Bot o Humano Curioso! 🤖📞                 |
+# |     | () () |    =================================                 |
+# |      \  _  /     Bienvenido a QuiénLlama México                    |
+# |       `---`      Directorio Antispam y Bloqueo Telefónico          |
+# |      .-''''-.    https://mx.quienllama.com.es                      |
+# |     /  (1)   \                                                     |
+# |    / (4) (2)  \  • Rastrea con libertad todas nuestras páginas     |
+# |   | (7) (5) (3)| • Directorio de claves LADA IFT en /claves-lada   |
+# |   |  (8) (6)  |  • Descubre cómo bloquear spam en /bloquear-spam-masivo
+# |    \   (9)   /   • Conoce la arquitectura AI en /llms.txt          |
+# |     '-....-'                                                       |
+# |                  Desarrollado con ❤️ por Víctor Alonso              |
+# |                  https://victor-alonso.es                          |
+# |____________________________________________________________________|
+
+User-agent: *
+Allow: /
+Allow: /llms.txt
+Disallow: /api/
+Disallow: /panel-metricas
+Disallow: /panel-metricas/
+Disallow: /*?*q=
+
+# Sitemap Oficial y Documentación LLM
+Sitemap: https://mx.quienllama.com.es/sitemap.xml
