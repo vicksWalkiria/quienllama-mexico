@@ -14,7 +14,7 @@ class NotificationService
      */
     public static function sendSpamReportAlert(Phone $phone, Comment $comment, Request $request): bool
     {
-        $adminEmail = config('mail.admin_email', env('ADMIN_EMAIL', 'victor@walkiriaapps.com'));
+        $adminEmail = config('mail.admin_email') ?: (env('ADMIN_EMAIL') ?: 'victor@walkiriaapps.com');
         if (empty($adminEmail)) {
             return false;
         }
@@ -62,7 +62,7 @@ class NotificationService
      */
     public static function sendContactMessageAlert(Request $request): bool
     {
-        $adminEmail = config('mail.admin_email', env('ADMIN_EMAIL', 'victor@walkiriaapps.com'));
+        $adminEmail = config('mail.admin_email') ?: (env('ADMIN_EMAIL') ?: 'victor@walkiriaapps.com');
         if (empty($adminEmail)) {
             return false;
         }
