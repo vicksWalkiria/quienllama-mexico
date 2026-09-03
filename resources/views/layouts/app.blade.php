@@ -428,6 +428,43 @@
             border-color: var(--border-hover);
         }
 
+        .nav-telegram-btn {
+            background: #0088cc !important;
+            color: #ffffff !important;
+            padding: 0.45rem 0.95rem !important;
+            border-radius: 9999px !important;
+            font-weight: 700 !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 0.35rem !important;
+            box-shadow: 0 2px 6px rgba(0, 136, 204, 0.35) !important;
+            text-decoration: none !important;
+            transition: transform 0.15s, background 0.15s !important;
+        }
+        .nav-telegram-btn:hover {
+            background: #0077b5 !important;
+            transform: translateY(-1px) !important;
+        }
+        .footer-telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #0088cc;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 9999px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.86rem;
+            margin-top: 0.75rem;
+            box-shadow: 0 2px 8px rgba(0, 136, 204, 0.25);
+            transition: transform 0.15s, background 0.15s;
+        }
+        .footer-telegram-btn:hover {
+            background: #0077b5;
+            transform: translateY(-1px);
+        }
+
         /* Footer Clásico QuiénLlama */
         .site-footer {
             background: var(--surface);
@@ -691,6 +728,7 @@
                 <a href="{{ route('home') }}">Buscar</a>
                 <a href="{{ route('area-codes.index') }}">Claves LADA</a>
                 <a href="{{ route('vcf.index') }}" class="nav-btn-highlight">🛡️ Bloquear SPAM</a>
+                <a href="https://t.me/+C91vWOozJvI4NzJk" target="_blank" rel="noopener noreferrer" class="nav-telegram-btn" onclick="if(typeof trackGoal==='function'){trackGoal('join_telegram_community', {event_label:'header_nav'});}">💬 Únete a la comunidad</a>
                 <a href="{{ route('legal.no-molestar') }}">REPEP / REUS</a>
                 <a href="{{ route('legal.about') }}">Sobre mí</a>
                 <a href="{{ route('contact.index') }}">Contacto</a>
@@ -750,6 +788,12 @@
                 </p>
                 <div class="footer-badge" style="background:#f0fdf4; color:#006847;">
                     <span>🇲🇽 Cobertura Nacional IFT 2026 (10 Dígitos)</span>
+                </div>
+                <div style="margin-top:0.85rem">
+                    <a href="https://t.me/+C91vWOozJvI4NzJk" target="_blank" rel="noopener noreferrer" class="footer-telegram-btn" onclick="if(typeof trackGoal==='function'){trackGoal('join_telegram_community', {event_label:'footer'});}">
+                        <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                        Únete a la comunidad en Telegram
+                    </a>
                 </div>
             </div>
 
