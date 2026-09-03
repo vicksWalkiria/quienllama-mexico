@@ -119,19 +119,21 @@
 
     <style>
         :root {
-            --primary: #0033a0; /* Azul Bandera Chilena */
-            --primary-hover: #002266; /* Azul profundo */
-            --secondary: #d52b1e; /* Rojo Chileno */
-            --accent-red: #d52b1e;
+            --primary: #006847; /* Verde Bandera de México */
+            --primary-hover: #004d34; /* Verde profundo */
+            --secondary: #ce1126; /* Rojo Bandera de México */
+            --secondary-hover: #a50e1e; /* Rojo profundo */
+            --accent-red: #ce1126;
+            --accent-green: #006847;
             --background: #f8fafc;
             --surface: #ffffff;
             --text-main: #0f172a;
             --text-muted: #64748b;
             --border: #e2e8f0;
             --border-hover: #cbd5e1;
-            --success: #10b981;
+            --success: #006847;
             --warning: #f59e0b;
-            --danger: #ef4444;
+            --danger: #ce1126;
             --radius: 12px;
             --radius-lg: 18px;
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -159,12 +161,13 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Top Header Premium (Estilo QuiénLlama) */
+        /* Top Header Premium (Colores Patrios de México) */
         .site-header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, #004d34 0%, #006847 50%, #005338 100%);
+            border-bottom: 3.5px solid #ce1126;
             padding: 0.75rem 1.25rem;
             color: white;
-            box-shadow: var(--shadow);
+            box-shadow: 0 4px 16px rgba(0, 77, 52, 0.25);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -203,12 +206,14 @@
 
         .tld-badge {
             font-size: 0.78rem;
-            background: rgba(255, 255, 255, 0.22);
+            background: #ce1126;
+            color: #ffffff;
             padding: 3px 10px;
             border-radius: 9999px;
             font-weight: 700;
             letter-spacing: 0.2px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 2px 5px rgba(206, 17, 38, 0.4);
             display: inline-flex;
             align-items: center;
             gap: 4px;
@@ -286,14 +291,17 @@
         }
 
         .header-nav a.nav-btn-highlight {
-            background: rgba(255, 255, 255, 0.22);
+            background: #ce1126;
             border: 1px solid rgba(255, 255, 255, 0.4);
+            color: #ffffff !important;
+            box-shadow: 0 2px 6px rgba(206, 17, 38, 0.35);
             opacity: 1;
         }
 
         .header-nav a.nav-btn-highlight:hover {
-            background: #ffffff;
-            color: var(--primary);
+            background: #e0172d;
+            box-shadow: 0 4px 12px rgba(206, 17, 38, 0.5);
+            color: #ffffff !important;
         }
 
         /* Mobile Menu Toggle Button */
@@ -556,7 +564,9 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background: #0f172a;
+                background: #004d34;
+                border-top: 2px solid #ce1126;
+                border-bottom: 2px solid #006847;
                 flex-direction: column;
                 padding: 1.25rem;
                 box-shadow: var(--shadow-hover);
@@ -640,19 +650,22 @@
 </head>
 <body>
 
+    <!-- Franja Tricolor Bandera de México -->
+    <div style="height:3px; width:100%; background:linear-gradient(90deg, #006847 0%, #006847 33.33%, #ffffff 33.33%, #ffffff 66.66%, #ce1126 66.66%, #ce1126 100%);"></div>
+
     <!-- Header Navigation -->
     <header class="site-header">
         <div class="header-inner">
             <a href="{{ route('home') }}" class="logo">
-                <span class="logo-icon">📞</span>
-                QuiénLlama
+                <img src="{{ asset('images/icon-192x192.png') }}" alt="Icono QuiénLlama México" style="width:32px; height:32px; border-radius:8px; display:inline-block; vertical-align:middle; box-shadow:0 2px 6px rgba(0,0,0,0.25);">
+                <span>Quién<strong style="color:#86efac;">Llama</strong></span>
                 <span class="tld-badge">🇲🇽 México</span>
             </a>
 
             <!-- Header Search Box (Ampliada y siempre presente) -->
             <div class="header-search-wrapper">
                 <form action="{{ route('search') }}" method="GET" class="header-search-form">
-                    <input type="text" name="q" placeholder="Buscar celular o número fijo (ej: 55 1234 5678)..." value="{{ request('q') }}" autocomplete="off" required>
+                    <input type="text" name="q" placeholder="Buscar celular o fijo a 10 dígitos (ej: 55 1234 5678)..." value="{{ request('q') }}" autocomplete="off" required>
                     <button type="submit" aria-label="Buscar">🔍</button>
                 </form>
             </div>
@@ -667,11 +680,11 @@
             <!-- Nav Links -->
             <nav class="header-nav" id="header-nav">
                 <a href="{{ route('home') }}">Buscar</a>
-                <a href="{{ route('area-codes.index') }}">Claves LADA IFT</a>
-                <a href="{{ route('vcf.index') }}">Bloquear SPAM</a>
-                <a href="{{ route('legal.no-molestar') }}">PROFECO REPEP</a>
+                <a href="{{ route('area-codes.index') }}">Claves LADA</a>
+                <a href="{{ route('vcf.index') }}" class="nav-btn-highlight">🛡️ Bloquear SPAM</a>
+                <a href="{{ route('legal.no-molestar') }}">REPEP / REUS</a>
                 <a href="{{ route('legal.about') }}">Sobre mí</a>
-                <a href="{{ route('contact.index') }}" class="nav-btn-highlight">Contacto</a>
+                <a href="{{ route('contact.index') }}">Contacto</a>
             </nav>
         </div>
     </header>
