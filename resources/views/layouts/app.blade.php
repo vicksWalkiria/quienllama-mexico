@@ -465,6 +465,104 @@
             transform: translateY(-1px);
         }
 
+        /* Community Telegram Banner CTA */
+        .telegram-banner-cta {
+            background: linear-gradient(135deg, #0088cc 0%, #006699 100%);
+            border-radius: var(--radius-lg);
+            padding: 1.35rem 1.6rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.35rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 136, 204, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .telegram-banner-content {
+            display: flex;
+            align-items: center;
+            gap: 1.15rem;
+        }
+        .telegram-banner-icon {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .telegram-banner-text h3 {
+            color: #ffffff;
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin: 0 0 0.25rem;
+            letter-spacing: -0.3px;
+        }
+        .telegram-banner-text p {
+            color: rgba(255, 255, 255, 0.92);
+            font-size: 0.88rem;
+            margin: 0;
+            line-height: 1.45;
+            max-width: 620px;
+        }
+        .telegram-banner-btn {
+            background: #ffffff;
+            color: #0088cc !important;
+            font-weight: 800;
+            font-size: 0.92rem;
+            padding: 0.8rem 1.35rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.15s, background 0.15s, box-shadow 0.15s;
+            flex-shrink: 0;
+        }
+        .telegram-banner-btn:hover {
+            background: #f8fafc;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+        }
+        @media (max-width: 768px) {
+            .telegram-banner-cta {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 1.25rem 1rem;
+                gap: 1rem;
+            }
+            .telegram-banner-content {
+                align-items: flex-start;
+                gap: 0.85rem;
+            }
+            .telegram-banner-icon {
+                width: 44px;
+                height: 44px;
+                border-radius: 10px;
+            }
+            .telegram-banner-icon svg {
+                width: 26px;
+                height: 26px;
+            }
+            .telegram-banner-text h3 {
+                font-size: 1.05rem;
+            }
+            .telegram-banner-text p {
+                font-size: 0.84rem;
+            }
+            .telegram-banner-btn {
+                justify-content: center;
+                width: 100%;
+                padding: 0.75rem 1rem;
+            }
+        }
+
         /* Footer Clásico QuiénLlama */
         .site-footer {
             background: var(--surface);
