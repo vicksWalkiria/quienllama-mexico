@@ -65,8 +65,8 @@ class NotificationService
         $sub = strip_tags($request->input('subject'));
         $body = strip_tags($request->input('message'));
 
-        $subject = "[QuiénLlama Chile Contacto] {$sub} ({$name})";
-        $message = "Nuevo mensaje recibido a través del formulario de contacto en QuiénLlama Chile 🇨🇱:\n\n"
+        $subject = "[QuiénLlama México Contacto] {$sub} ({$name})";
+        $message = "Nuevo mensaje recibido a través del formulario de contacto en QuiénLlama México 🇲🇽:\n\n"
                  . "Nombre: {$name}\n"
                  . "Email: {$email}\n"
                  . "Asunto: {$sub}\n"
@@ -75,7 +75,7 @@ class NotificationService
                  . "Mensaje:\n"
                  . "{$body}\n";
 
-        $host = parse_url(config('app.url'), PHP_URL_HOST) ?: 'cl.quienllama.com.es';
+        $host = parse_url(config('app.url'), PHP_URL_HOST) ?: 'mx.quienllama.com.es';
         $headers = "From: noreply@{$host}\r\n"
                  . ($email ? "Reply-To: {$email}\r\n" : "")
                  . "Content-Type: text/plain; charset=UTF-8\r\n"
