@@ -31,8 +31,9 @@
 
     .search-form-wrapper {
         position: relative;
-        max-width: 600px;
+        max-width: 680px;
         margin: 0 auto;
+        width: 100%;
     }
 
     .search-form {
@@ -54,7 +55,7 @@
         border: none;
         outline: none;
         width: 100%;
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-weight: 600;
         color: var(--text-main);
         background: transparent;
@@ -128,7 +129,7 @@
         background: #dcfce7;
     }
 
-    /* VCF Promo Banner */
+    /* VCF Promo Banner (Centrado) */
     .vcf-promo-banner {
         margin-top: 2rem;
         background: linear-gradient(135deg, #f8fafc, #f1f5f9);
@@ -136,51 +137,62 @@
         border-radius: var(--radius-lg);
         padding: 1.25rem 1.5rem;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
-        gap: 1.5rem;
-        text-align: left;
+        justify-content: center;
+        text-align: center;
+        gap: 0.85rem;
     }
 
     .vcf-promo-left {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        gap: 0.5rem;
+        text-align: center;
     }
 
     .vcf-promo-icon {
         font-size: 2rem;
-        flex-shrink: 0;
+        margin-bottom: 0.1rem;
     }
 
     .vcf-promo-text strong {
         display: block;
-        font-size: 1rem;
+        font-size: 1.05rem;
         color: var(--text-main);
-        margin-bottom: 0.2rem;
+        margin-bottom: 0.35rem;
     }
 
     .vcf-promo-text span {
         font-size: 0.88rem;
         color: var(--text-muted);
-        line-height: 1.4;
+        line-height: 1.45;
+        max-width: 520px;
+        display: block;
+        margin: 0 auto;
     }
 
     .vcf-promo-btn {
-        background: #0f172a;
+        background: var(--secondary);
         color: white;
-        padding: 0.65rem 1.25rem;
+        padding: 0.65rem 1.5rem;
         border-radius: 9999px;
         font-size: 0.88rem;
         font-weight: 700;
         text-decoration: none;
         white-space: nowrap;
-        transition: background 0.2s;
-        flex-shrink: 0;
+        transition: all 0.2s;
+        box-shadow: 0 3px 10px rgba(206, 17, 38, 0.3);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
     }
 
     .vcf-promo-btn:hover {
-        background: #1e293b;
+        background: var(--secondary-hover);
+        transform: translateY(-1px);
+        box-shadow: 0 5px 14px rgba(206, 17, 38, 0.4);
     }
 
     /* Section Header */
@@ -437,7 +449,7 @@
 
         <div class="search-form-wrapper">
             <form action="{{ route('search') }}" method="GET" class="search-form">
-                <input type="tel" name="q" placeholder="Introduce el número a 10 dígitos (ej: 55 8898 2939, 33 1234 5678...)" autofocus required>
+                <input type="tel" name="q" placeholder="Introduce el número a 10 dígitos (ej: 55 8898 2939)" autofocus required>
                 <button type="submit" class="btn-search">Buscar Gratis</button>
             </form>
         </div>
