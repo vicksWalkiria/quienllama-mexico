@@ -66,9 +66,9 @@ Route::middleware('admin.ip')->group(function () {
 Route::get('/contacto', [\App\Http\Controllers\ContactController::class, 'index'])->name('contact.index');
 Route::post('/contacto', [\App\Http\Controllers\ContactController::class, 'submit'])->name('contact.submit');
 
-// Acciones sobre números de teléfono
-Route::post('/numero/{number}/comentar', [PhoneController::class, 'storeComment'])->name('phone.comment');
-Route::post('/numero/{number}/votar', [PhoneController::class, 'voteReason'])->name('phone.vote');
+// Acciones sobre números de teléfono protegidas contra bots
+Route::post('/numero/{number}/comentar', [PhoneController::class, 'storeComment'])->middleware('throttle:10,1')->name('phone.comment');
+Route::post('/numero/{number}/votar', [PhoneController::class, 'voteReason'])->middleware('throttle:20,1')->name('phone.vote');
 Route::get('/numero/{number}/vcf', [PhoneController::class, 'downloadVcf'])->name('phone.vcf');
 Route::get('/vcf/{number}.vcf', [PhoneController::class, 'downloadVcf']);
 Route::get('/{number}.vcf', [PhoneController::class, 'downloadVcf']);

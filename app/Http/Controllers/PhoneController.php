@@ -82,6 +82,11 @@ class PhoneController extends Controller
 
     public function storeComment(Request $request, string $number): RedirectResponse
     {
+        // Honeypot anti-bot check
+        if (!empty($request->input('website_hp'))) {
+            return back()->with('success', '¡Gracias! Tu reporte fue registrado y ayudará a millones de usuarios en México a prevenir extorsiones y llamadas molestas.');
+        }
+
         $clean = MexicoPhoneHelper::normalize($number);
         if (!$clean) {
             return back()->with('error', 'Número de teléfono inválido.');
@@ -105,6 +110,13 @@ class PhoneController extends Controller
 
         // Enviar alerta por email al administrador
         \App\Services\NotificationService::sendSpamReportAlert($phone, $comment, $request);
+
+        // Notificar a IndexNow en tiempo real para acelerar indexación en buscadores
+        try {
+            \App\Services\IndexNowService::submitUrls([route('phone.show', $phone->number)]);
+        } catch (\Throwable $e) {
+            // Non-blocking
+        }
 
         // Aumentar spam_score según la gravedad del motivo en México
         $increment = match ($request->reason) {

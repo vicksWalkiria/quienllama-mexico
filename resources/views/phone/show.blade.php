@@ -389,6 +389,9 @@
 
         <form action="{{ route('phone.comment', $phone->number) }}" method="POST">
             @csrf
+            <div style="display:none !important;" aria-hidden="true">
+                <input type="text" name="website_hp" tabindex="-1" autocomplete="off">
+            </div>
             <div class="form-group">
                 <label for="author_name">Tu Nombre o Alias (Opcional):</label>
                 <input type="text" id="author_name" name="author_name" placeholder="Ej: Usuario de CDMX, Vecino de Guadalajara, Anónimo...">

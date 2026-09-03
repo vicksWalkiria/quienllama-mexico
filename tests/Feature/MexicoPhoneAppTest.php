@@ -57,4 +57,26 @@ class MexicoPhoneAppTest extends TestCase
         $this->get('/contacto')->assertStatus(200);
         $this->get('/sitemap.xml')->assertStatus(200);
     }
+
+    public function test_comment_submission_and_honeypot(): void
+    {
+        // Bot fills honeypot
+        $response = $this->post('/numero/5588982939/comentar', [
+            'website_hp' => 'I am a bot',
+            'content' => 'Buy cheap pills spam message',
+            'reason' => 'Telemarketing / Ventas',
+        ]);
+        $response->assertSessionHas('success');
+        $this->assertDatabaseMissing('comments', ['content' => 'Buy cheap pills spam message']);
+
+        // Real user leaves honeypot empty
+        $response = $this->post('/numero/5588982939/comentar', [
+            'website_hp' => '',
+            'content' => 'Llamada sospechosa de supuesto banco para pedir NIP',
+            'reason' => 'Fraude Bancario / Phishing',
+            'author_name' => 'Test User',
+        ]);
+        $response->assertSessionHas('success');
+        $this->assertDatabaseHas('comments', ['content' => 'Llamada sospechosa de supuesto banco para pedir NIP']);
+    }
 }
