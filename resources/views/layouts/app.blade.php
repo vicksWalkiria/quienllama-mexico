@@ -563,6 +563,207 @@
             }
         }
 
+        /* Global App Android Banner México */
+        .app-global-banner-mx {
+            background: linear-gradient(135deg, #002b1c 0%, #004d34 50%, #002216 100%);
+            border: 1.5px solid #22c55e;
+            border-radius: 18px;
+            padding: 1.25rem 1.6rem;
+            margin: 1.25rem auto 1.75rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            box-shadow: 0 10px 28px -6px rgba(0, 104, 71, 0.4), 0 4px 15px rgba(0, 0, 0, 0.35);
+            position: relative;
+            overflow: hidden;
+        }
+        .app-global-banner-mx::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle, rgba(134, 239, 172, 0.2) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .app-banner-left {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            flex: 1;
+        }
+        .app-banner-icon-wrap {
+            position: relative;
+            flex-shrink: 0;
+        }
+        .app-banner-logo {
+            width: 62px;
+            height: 62px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(134, 239, 172, 0.4);
+            display: block;
+        }
+        .app-banner-verif {
+            position: absolute;
+            bottom: -3px;
+            right: -3px;
+            background: #22c55e;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 900;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #002b1c;
+        }
+        .app-banner-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .app-banner-badge-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .app-banner-chip {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.12);
+            color: #e2e8f0;
+        }
+        .app-chip-free {
+            background: rgba(34, 197, 94, 0.2);
+            color: #86efac;
+            border: 1px solid rgba(34, 197, 94, 0.4);
+        }
+        .app-chip-privacy {
+            background: rgba(2, 132, 199, 0.2);
+            color: #7dd3fc;
+            border: 1px solid rgba(2, 132, 199, 0.4);
+        }
+        .app-banner-title {
+            font-size: 1.12rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 0;
+            line-height: 1.3;
+        }
+        .app-banner-desc {
+            font-size: 0.86rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
+            line-height: 1.4;
+        }
+        .app-banner-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+        .btn-app-playstore {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #003322;
+            color: #ffffff !important;
+            padding: 9px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            border: 1.5px solid rgba(134, 239, 172, 0.3);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .btn-app-playstore:hover {
+            background: #004d34;
+            border-color: #86efac;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 104, 71, 0.4);
+            color: #ffffff !important;
+        }
+        .btn-app-playstore-txt {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            line-height: 1.1;
+        }
+        .btn-app-sub {
+            font-size: 0.58rem;
+            letter-spacing: 0.08em;
+            opacity: 0.8;
+            font-weight: 600;
+        }
+        .btn-app-main {
+            font-size: 0.98rem;
+            font-weight: 800;
+        }
+        .btn-app-learnmore {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff !important;
+            padding: 10px 14px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.84rem;
+            font-weight: 700;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .btn-app-learnmore:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #86efac;
+            color: #86efac !important;
+        }
+        .nav-app-link {
+            background: rgba(34, 197, 94, 0.2) !important;
+            border: 1.5px solid #22c55e !important;
+            color: #86efac !important;
+            font-weight: 800 !important;
+            border-radius: 9999px !important;
+            padding: 0.35rem 0.85rem !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 0.35rem !important;
+            transition: all 0.2s ease !important;
+        }
+        .nav-app-link:hover {
+            background: #22c55e !important;
+            color: #002b1c !important;
+            transform: translateY(-1px) !important;
+        }
+        @media (max-width: 900px) {
+            .app-global-banner-mx {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 1.25rem 1.1rem;
+                gap: 1.1rem;
+            }
+            .app-banner-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+            .btn-app-playstore,
+            .btn-app-learnmore {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
         /* Footer Clásico QuiénLlama */
         .site-footer {
             background: var(--surface);
@@ -826,6 +1027,7 @@
                 <a href="{{ route('home') }}">Buscar</a>
                 <a href="{{ route('area-codes.index') }}">Claves LADA</a>
                 <a href="{{ route('vcf.index') }}" class="nav-btn-highlight">🛡️ Bloquear SPAM</a>
+                <a href="{{ url('/app') }}" style="color: #fef08a; font-weight:800; display:inline-flex; align-items:center; gap:4px;">📲 App Android</a>
                 <a href="https://t.me/+C91vWOozJvI4NzJk" target="_blank" rel="noopener noreferrer" class="nav-telegram-btn" onclick="if(typeof trackGoal==='function'){trackGoal('join_telegram_community', {event_label:'header_nav'});}">💬 Únete a la comunidad</a>
                 <a href="{{ route('legal.no-molestar') }}">REPEP / REUS</a>
                 <a href="{{ route('legal.about') }}">Sobre mí</a>
@@ -856,6 +1058,33 @@
 
     <!-- Main Container -->
     <main class="container">
+        @if(!request()->is('app*'))
+        <aside class="app-global-banner-mx" aria-label="Descargar aplicación Quién Llama para Android">
+            <div class="banner-badge-live">¡YA DISPONIBLE EN GOOGLE PLAY! 🇲🇽</div>
+            <div class="banner-content">
+                <div class="banner-icon">
+                    <img src="{{ asset('images/app/1.png') }}" alt="App Quién Llama Android" width="48" height="48" loading="lazy">
+                </div>
+                <div class="banner-text">
+                    <div class="banner-title">
+                        <span>📲 ¿Te marcan números desconocidos o cobranzas? ¡Instala la App Oficial!</span>
+                        <span class="banner-rating">⭐ 5.0 · 100% Gratis</span>
+                    </div>
+                    <p class="banner-desc">
+                        Identifica llamadas sospechosas, evita fraudes y extorsiones, y consulta claves LADA de México en tiempo real directo en tu celular.
+                    </p>
+                </div>
+                <div class="banner-actions">
+                    <a href="https://play.google.com/store/apps/details?id=com.walkiria.quienllama" target="_blank" rel="noopener noreferrer" class="btn-playstore" onclick="if(typeof trackGoal==='function'){trackGoal('app_download_click', {event_label:'global_banner_mx'});}">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                        Instalar en Play Store
+                    </a>
+                    <a href="{{ url('/app') }}" class="btn-learn">Conoce la App</a>
+                </div>
+            </div>
+        </aside>
+        @endif
+
         @if(session('success'))
             <div class="alert alert-success">
                 <span>✅</span>
@@ -899,7 +1128,12 @@
                 <h4>Herramientas</h4>
                 <ul>
                     <li><a href="{{ route('home') }}">Buscador de Teléfonos</a></li>
+                    <li><a href="{{ url('/app') }}" style="color:var(--primary); font-weight:700">📲 App Android (Google Play)</a></li>
                     <li><a href="{{ route('area-codes.index') }}" style="color:var(--primary); font-weight:700">Claves LADA de México (IFT)</a></li>
+                    <li><a href="{{ route('vcf.index') }}">Bloqueador SPAM VCF (Top México)</a></li>
+                    <li><a href="{{ route('legal.no-molestar') }}">Guía REPEP PROFECO / REUS CONDUSEF</a></li>
+                </ul>
+            </div>
                     <li><a href="{{ route('vcf.index') }}">Bloqueador SPAM VCF (Top México)</a></li>
                     <li><a href="{{ route('legal.no-molestar') }}">Guía REPEP PROFECO / REUS CONDUSEF</a></li>
                 </ul>
