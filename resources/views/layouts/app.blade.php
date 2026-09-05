@@ -1046,24 +1046,70 @@
             .header-inner {
                 display: grid;
                 grid-template-columns: 1fr auto;
+                grid-template-areas:
+                    "logo toggle"
+                    "search search";
                 align-items: center;
-                gap: 0.5rem;
+                gap: 0.6rem 0.5rem;
             }
 
             .logo {
+                grid-area: logo;
                 font-size: 1.2rem;
             }
 
             .menu-toggle {
+                grid-area: toggle;
                 justify-self: end;
             }
 
             .header-search-wrapper {
-                grid-column: 1 / -1;
+                grid-area: search;
                 width: 100%;
                 max-width: 100%;
                 min-width: 100%;
-                margin-top: 0.2rem;
+                margin-top: 0;
+            }
+
+            /* EEAT Author Card Mobile Responsive */
+            .eeat-author-card {
+                flex-direction: column !important;
+                text-align: center !important;
+                padding: 1.25rem 1rem !important;
+                gap: 0.85rem !important;
+                align-items: center !important;
+            }
+
+            .eeat-avatar {
+                margin: 0 auto !important;
+                width: 68px !important;
+                height: 68px !important;
+            }
+
+            .eeat-info {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+                width: 100% !important;
+            }
+
+            .eeat-info h4 {
+                margin-bottom: 0.35rem !important;
+                font-size: 0.96rem !important;
+            }
+
+            .eeat-info p {
+                font-size: 0.84rem !important;
+                line-height: 1.45 !important;
+                margin-bottom: 0.6rem !important;
+            }
+
+            .eeat-links {
+                justify-content: center !important;
+                flex-wrap: wrap !important;
+                gap: 0.5rem 1rem !important;
+                width: 100% !important;
             }
 
             .container {

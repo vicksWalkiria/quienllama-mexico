@@ -238,17 +238,25 @@
             padding: 4px 10px;
         }
         .action-btn-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 8px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
         }
         .action-btn-row .btn-action {
-            width: 100%;
-            justify-content: center;
-            text-align: center;
-            font-size: 0.82rem;
-            padding: 8px 6px;
-            white-space: nowrap;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            justify-content: center !important;
+            text-align: center !important;
+            font-size: 0.82rem !important;
+            padding: 9px 8px !important;
+            white-space: normal !important;
+            line-height: 1.25 !important;
+            border-radius: 10px !important;
+        }
+        .action-btn-row .btn-nollame {
+            grid-column: 1 / -1 !important;
         }
         .card {
             padding: 1.25rem 1rem;
@@ -394,7 +402,7 @@
             </button>
 
             <a href="{{ route('phone.vcf', $phone->number) }}" class="btn-action btn-vcf">
-                🚫 Descargar VCF para Bloquear
+                🚫 Descargar VCF
             </a>
 
             <a href="{{ route('legal.no-molestar') }}" class="btn-action btn-nollame">
