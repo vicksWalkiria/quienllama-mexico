@@ -55,7 +55,7 @@
             </p>
 
             <div class="app-hero-actions">
-                <a href="https://play.google.com/store/apps/details?id=com.walkiria.quienllama" target="_blank" rel="noopener noreferrer" class="btn-playstore-primary" onclick="if(typeof trackEvent==='function'){trackEvent('download_playstore_landing_mx', 'hero');}">
+                <a href="https://play.google.com/store/apps/details?id=com.walkiria.quienllama" target="_blank" rel="noopener noreferrer" class="btn-playstore-primary" onclick="if(typeof trackGoal==='function'){trackGoal('app_download_click', {event_label:'landing_hero_mx', destination:'playstore'});}">
                     <svg viewBox="0 0 512 512" width="26" height="26" fill="currentColor" aria-hidden="true">
                         <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
                     </svg>
@@ -279,7 +279,7 @@
                 <p>Protege tu celular contra extorsiones y call centers. Descarga oficial rápida y segura desde Google Play.</p>
             </div>
             <div class="cta-banner-btn-wrap">
-                <a href="https://play.google.com/store/apps/details?id=com.walkiria.quienllama" target="_blank" rel="noopener noreferrer" class="btn-playstore-primary" onclick="if(typeof trackEvent==='function'){trackEvent('download_playstore_landing_bottom_mx', 'cta_bottom');}">
+                <a href="https://play.google.com/store/apps/details?id=com.walkiria.quienllama" target="_blank" rel="noopener noreferrer" class="btn-playstore-primary" onclick="if(typeof trackGoal==='function'){trackGoal('app_download_click', {event_label:'landing_bottom_mx', destination:'playstore'});}">
                     <svg viewBox="0 0 512 512" width="24" height="24" fill="currentColor" aria-hidden="true">
                         <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
                     </svg>

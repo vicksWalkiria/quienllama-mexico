@@ -8,6 +8,9 @@
 
     // Función global accesible desde cualquier script o vista Blade
     window.trackGoal = function(eventName, params) {
+        if (typeof params === 'string') {
+            params = { event_label: params };
+        }
         params = params || {};
         params.transport_type = 'beacon';
         params.event_category = params.event_category || 'antispam_goals';

@@ -1210,7 +1210,7 @@
                 <a href="{{ route('home') }}">Buscar</a>
                 <a href="{{ route('area-codes.index') }}">Claves LADA</a>
                 <a href="{{ route('vcf.index') }}" class="nav-btn-highlight">🛡️ Bloquear SPAM</a>
-                <a href="{{ url('/app') }}" style="color: #fef08a; font-weight:800; display:inline-flex; align-items:center; gap:4px;">📲 App Android</a>
+                <a href="{{ url('/app') }}" style="color: #fef08a; font-weight:800; display:inline-flex; align-items:center; gap:4px;" onclick="if(typeof trackGoal==='function'){trackGoal('app_nav_click', {event_label:'header_nav_mx'});}">📲 App Android</a>
                 <a href="https://t.me/+C91vWOozJvI4NzJk" target="_blank" rel="noopener noreferrer" class="nav-telegram-btn" onclick="if(typeof trackGoal==='function'){trackGoal('join_telegram_community', {event_label:'header_nav'});}">
                     <span class="nav-tg-desktop">💬 Telegram</span>
                     <span class="nav-tg-mobile">💬 Únete a la comunidad</span>
@@ -1267,7 +1267,7 @@
                 </div>
             </div>
             <div class="app-banner-actions">
-                <a href="https://play.google.com/store/apps/details?id=com.walkiria.quienllama" target="_blank" rel="noopener noreferrer" class="btn-app-playstore" onclick="if(typeof trackGoal==='function'){trackGoal('app_download_click', {event_label:'global_banner_mx'});}">
+                <a href="https://play.google.com/store/apps/details?id=com.walkiria.quienllama" target="_blank" rel="noopener noreferrer" class="btn-app-playstore" onclick="if(typeof trackGoal==='function'){trackGoal('app_download_click', {event_label:'global_banner_mx', destination:'playstore'});}">
                     <svg viewBox="0 0 512 512" width="22" height="22" fill="currentColor" aria-hidden="true">
                         <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
                     </svg>
@@ -1276,7 +1276,7 @@
                         <span class="btn-app-main">Google Play</span>
                     </div>
                 </a>
-                <a href="{{ url('/app') }}" class="btn-app-learnmore">
+                <a href="{{ url('/app') }}" class="btn-app-learnmore" onclick="if(typeof trackGoal==='function'){trackGoal('app_learn_more_click', {event_label:'global_banner_mx'});}">
                     <span>Conoce la App</span>
                     <span>➔</span>
                 </a>
@@ -1327,7 +1327,7 @@
                 <h4>Herramientas</h4>
                 <ul>
                     <li><a href="{{ route('home') }}">Buscador de Teléfonos</a></li>
-                    <li><a href="{{ url('/app') }}" style="color:var(--primary); font-weight:700">📲 App Android (Google Play)</a></li>
+                    <li><a href="{{ url('/app') }}" style="color:var(--primary); font-weight:700" onclick="if(typeof trackGoal==='function'){trackGoal('app_nav_click', {event_label:'footer_mx'});}">📲 App Android (Google Play)</a></li>
                     <li><a href="{{ route('area-codes.index') }}" style="color:var(--primary); font-weight:700">Claves LADA de México (IFT)</a></li>
                     <li><a href="{{ route('vcf.index') }}">Bloqueador SPAM VCF (Top México)</a></li>
                     <li><a href="{{ route('legal.no-molestar') }}">Guía REPEP PROFECO / REUS CONDUSEF</a></li>
