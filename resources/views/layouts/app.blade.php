@@ -751,17 +751,126 @@
             .app-global-banner-mx {
                 flex-direction: column;
                 align-items: stretch;
-                padding: 1.25rem 1.1rem;
-                gap: 1.1rem;
+                padding: 1.1rem 1.15rem 1rem;
+                gap: 0.75rem;
+                border-radius: 16px;
+                margin: 0.85rem auto 1.35rem;
+            }
+            .app-banner-left {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 0.85rem;
+                width: 100%;
+            }
+            .app-banner-icon-wrap {
+                flex-shrink: 0;
+                margin-top: 2px;
+            }
+            .app-banner-logo {
+                width: 52px;
+                height: 52px;
+                border-radius: 13px;
+            }
+            .app-banner-verif {
+                width: 17px;
+                height: 17px;
+                font-size: 9px;
+                bottom: -2px;
+                right: -2px;
+            }
+            .app-banner-info {
+                display: flex;
+                flex-direction: column;
+                gap: 0.25rem;
+                flex: 1;
+                min-width: 0;
+            }
+            .app-banner-badge-row {
+                gap: 0.35rem;
+                margin-bottom: 0.1rem;
+            }
+            .app-banner-chip {
+                font-size: 0.68rem;
+                padding: 1px 6px;
+                border-radius: 5px;
+            }
+            .app-banner-title {
+                font-size: 0.98rem;
+                font-weight: 800;
+                line-height: 1.25;
+            }
+            .app-banner-desc {
+                font-size: 0.82rem;
+                line-height: 1.35;
+                margin: 0;
+                opacity: 0.92;
             }
             .app-banner-actions {
-                flex-direction: column;
-                width: 100%;
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 0.55rem !important;
+                width: 100% !important;
+                margin-top: 0.25rem !important;
             }
-            .btn-app-playstore,
+            .btn-app-playstore {
+                width: 100% !important;
+                box-sizing: border-box !important;
+                padding: 8px 8px !important;
+                border-radius: 11px !important;
+                gap: 6px !important;
+                justify-content: center !important;
+                min-height: 42px !important;
+            }
+            .btn-app-playstore svg {
+                width: 18px !important;
+                height: 18px !important;
+                flex-shrink: 0 !important;
+            }
+            .btn-app-playstore-txt {
+                line-height: 1.05 !important;
+            }
+            .btn-app-sub {
+                font-size: 0.52rem !important;
+            }
+            .btn-app-main {
+                font-size: 0.84rem !important;
+            }
             .btn-app-learnmore {
-                width: 100%;
-                justify-content: center;
+                width: 100% !important;
+                box-sizing: border-box !important;
+                padding: 8px 8px !important;
+                border-radius: 11px !important;
+                font-size: 0.82rem !important;
+                justify-content: center !important;
+                text-align: center !important;
+                min-height: 42px !important;
+                gap: 4px !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .app-global-banner-mx {
+                padding: 0.9rem 0.9rem 0.85rem;
+                gap: 0.65rem;
+            }
+            .app-banner-logo {
+                width: 46px;
+                height: 46px;
+                border-radius: 11px;
+            }
+            .app-banner-title {
+                font-size: 0.92rem;
+            }
+            .app-banner-desc {
+                font-size: 0.78rem;
+                line-height: 1.3;
+            }
+            .btn-app-main {
+                font-size: 0.80rem !important;
+            }
+            .btn-app-learnmore {
+                font-size: 0.78rem !important;
+                padding: 7px 6px !important;
             }
         }
 
