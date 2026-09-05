@@ -22,7 +22,8 @@
         margin-bottom: 0.75rem;
     }
 
-    .search-section p {
+    .search-section .search-subtitle,
+    .search-section > p {
         font-size: 1.05rem;
         color: var(--text-muted);
         line-height: 1.5;

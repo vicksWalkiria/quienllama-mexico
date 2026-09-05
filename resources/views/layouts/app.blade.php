@@ -517,17 +517,17 @@
             flex-shrink: 0;
         }
         .telegram-banner-text h3 {
-            color: #ffffff;
+            color: #ffffff !important;
             font-size: 1.15rem;
             font-weight: 800;
-            margin: 0 0 0.25rem;
+            margin: 0 0 0.25rem !important;
             letter-spacing: -0.3px;
         }
         .telegram-banner-text p {
-            color: rgba(255, 255, 255, 0.92);
-            font-size: 0.88rem;
-            margin: 0;
-            line-height: 1.45;
+            color: rgba(255, 255, 255, 0.95) !important;
+            font-size: 0.88rem !important;
+            margin: 0 !important;
+            line-height: 1.45 !important;
             max-width: 620px;
         }
         .telegram-banner-btn {
