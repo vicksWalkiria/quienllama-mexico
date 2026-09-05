@@ -553,13 +553,18 @@
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
         }
         /* Google Funding Choices CMP A11y Contrast Overrides */
-        .fc-consent-root .fc-dialog .fc-faq-label {
-            color: #1e293b !important;
-        }
-        .fc-consent-root .fc-dialog .fc-footer a {
+        .fc-faq-label,
+        button.fc-faq-header span,
+        .fc-faq-header {
             color: #0f172a !important;
         }
-        .fc-consent-root .fc-dialog .fc-manage-options-third-button-label {
+        .fc-footer a,
+        a.fc-vendors-list-dialog,
+        .fc-footer-link-v2 {
+            color: #0f172a !important;
+        }
+        p.fc-manage-options-third-button-label,
+        .fc-manage-options-third-button-label {
             color: #0f172a !important;
         }
         @media (max-width: 768px) {
