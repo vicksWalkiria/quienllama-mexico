@@ -553,29 +553,24 @@
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
         }
         /* Google Funding Choices CMP A11y Contrast Overrides */
-        .fc-dialog,
-        .fc-dialog-container .fc-dialog,
-        .fc-dialog-content,
-        .fc-dialog-scrollable-content {
+        html body div.fc-consent-root .fc-dialog,
+        html body div.fc-consent-root .fc-dialog-content,
+        html body div.fc-consent-root .fc-dialog-scrollable-content {
             background-color: #ffffff !important;
         }
-        button.fc-faq-header {
+        html body div.fc-consent-root .fc-faq-header,
+        html body div.fc-consent-root .fc-faq-header .fc-faq-label {
+            color: #0f172a !important;
             background-color: #ffffff !important;
         }
-        .fc-faq-label,
-        button.fc-faq-header span,
-        .fc-faq-header {
+        html body div.fc-consent-root .fc-footer a,
+        html body div.fc-consent-root a.fc-vendors-list-dialog,
+        html body div.fc-consent-root .fc-footer-link-v2 {
             color: #0f172a !important;
         }
-        .fc-footer a,
-        a.fc-vendors-list-dialog,
-        .fc-footer-link-v2 {
-            color: #0f172a !important;
-        }
-        button.fc-manage-options-third-button,
-        .fc-manage-options-third-button,
-        p.fc-manage-options-third-button-label,
-        .fc-manage-options-third-button-label {
+        html body div.fc-consent-root .fc-cta-manage-options,
+        html body div.fc-consent-root .fc-manage-options-third-button,
+        html body div.fc-consent-root .fc-manage-options-third-button-label {
             background-color: #ffffff !important;
             color: #005b8e !important;
         }
