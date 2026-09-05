@@ -449,19 +449,20 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: #0088cc;
-            color: #ffffff;
+            background: #0088cc !important;
+            color: #ffffff !important;
             padding: 8px 16px;
             border-radius: 9999px;
             font-weight: 700;
-            text-decoration: none;
+            text-decoration: none !important;
             font-size: 0.86rem;
             margin-top: 0.75rem;
             box-shadow: 0 2px 8px rgba(0, 136, 204, 0.25);
             transition: transform 0.15s, background 0.15s;
         }
         .footer-telegram-btn:hover {
-            background: #0077b5;
+            background: #0077b5 !important;
+            color: #ffffff !important;
             transform: translateY(-1px);
         }
 
