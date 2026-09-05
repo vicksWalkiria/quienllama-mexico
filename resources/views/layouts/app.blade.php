@@ -1059,28 +1059,41 @@
     <!-- Main Container -->
     <main class="container">
         @if(!request()->is('app*'))
-        <aside class="app-global-banner-mx" aria-label="Descargar aplicación Quién Llama para Android">
-            <div class="banner-badge-live">¡YA DISPONIBLE EN GOOGLE PLAY! 🇲🇽</div>
-            <div class="banner-content">
-                <div class="banner-icon">
-                    <img src="{{ asset('images/app/1.png') }}" alt="App Quién Llama Android" width="48" height="48" loading="lazy">
+        <aside class="app-global-banner-mx" aria-label="Descargar aplicación oficial Quién Llama para Android">
+            <div class="app-banner-left">
+                <div class="app-banner-icon-wrap">
+                    <img src="{{ asset('images/app/icon_512x512.png') }}" alt="App Quién Llama Android" width="62" height="62" class="app-banner-logo" loading="lazy">
+                    <span class="app-banner-verif" title="App Oficial Verificada">✓</span>
                 </div>
-                <div class="banner-text">
-                    <div class="banner-title">
-                        <span>📲 ¿Te marcan números desconocidos o cobranzas? ¡Instala la App Oficial!</span>
-                        <span class="banner-rating">⭐ 5.0 · 100% Gratis</span>
+                <div class="app-banner-info">
+                    <div class="app-banner-badge-row">
+                        <span class="app-banner-chip" style="background:#ce1126; color:#ffffff; border:1px solid rgba(255,255,255,0.35);">🇲🇽 ¡YA EN GOOGLE PLAY!</span>
+                        <span class="app-banner-chip" style="background:rgba(0,0,0,0.35); color:#fef08a; border:1px solid rgba(254,240,138,0.35);">⭐ 5.0</span>
+                        <span class="app-banner-chip app-chip-free">100% Gratis</span>
+                        <span class="app-banner-chip app-chip-privacy">🔒 0% Contactos</span>
                     </div>
-                    <p class="banner-desc">
-                        Identifica llamadas sospechosas, evita fraudes y extorsiones, y consulta claves LADA de México en tiempo real directo en tu celular.
+                    <h2 class="app-banner-title">
+                        ¿Te marcan números desconocidos o cobranzas? ¡Bloquéalos en tu celular!
+                    </h2>
+                    <p class="app-banner-desc">
+                        Identifica llamadas sospechosas, frena fraudes y extorsiones y consulta claves LADA de México en tiempo real en menos de 2 ms.
                     </p>
                 </div>
-                <div class="banner-actions">
-                    <a href="https://play.google.com/store/apps/details?id=com.walkiria.quienllama" target="_blank" rel="noopener noreferrer" class="btn-playstore" onclick="if(typeof trackGoal==='function'){trackGoal('app_download_click', {event_label:'global_banner_mx'});}">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
-                        Instalar en Play Store
-                    </a>
-                    <a href="{{ url('/app') }}" class="btn-learn">Conoce la App</a>
-                </div>
+            </div>
+            <div class="app-banner-actions">
+                <a href="https://play.google.com/store/apps/details?id=com.walkiria.quienllama" target="_blank" rel="noopener noreferrer" class="btn-app-playstore" onclick="if(typeof trackGoal==='function'){trackGoal('app_download_click', {event_label:'global_banner_mx'});}">
+                    <svg viewBox="0 0 512 512" width="22" height="22" fill="currentColor" aria-hidden="true">
+                        <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
+                    </svg>
+                    <div class="btn-app-playstore-txt">
+                        <span class="btn-app-sub">INSTALAR DESDE</span>
+                        <span class="btn-app-main">Google Play</span>
+                    </div>
+                </a>
+                <a href="{{ url('/app') }}" class="btn-app-learnmore">
+                    <span>Conoce la App</span>
+                    <span>➔</span>
+                </a>
             </div>
         </aside>
         @endif
