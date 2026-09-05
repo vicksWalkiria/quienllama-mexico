@@ -290,6 +290,7 @@
         flex-shrink: 0;
     }
 
+    .eeat-info h3,
     .eeat-info h4 {
         font-size: 1.05rem;
         font-weight: 800;
@@ -450,7 +451,7 @@
 
         <div class="search-form-wrapper">
             <form action="{{ route('search') }}" method="GET" class="search-form">
-                <input type="tel" name="q" placeholder="Introduce el número a 10 dígitos (ej: 55 8898 2939)" autofocus required>
+                <input type="tel" name="q" placeholder="Introduce el número a 10 dígitos (ej: 55 8898 2939)" aria-label="Introduce el número a 10 dígitos para buscar gratis" autofocus required>
                 <button type="submit" class="btn-search">Buscar Gratis</button>
             </form>
         </div>
@@ -486,7 +487,7 @@
                     <svg width="34" height="34" viewBox="0 0 24 24" fill="#ffffff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
                 </div>
                 <div class="telegram-banner-text">
-                    <h3>💬 Comunidad Antispam en Telegram</h3>
+                    <p class="telegram-banner-title" style="color: #ffffff !important; font-size: 1.15rem; font-weight: 800; margin: 0 0 0.25rem !important; letter-spacing: -0.3px;">💬 Comunidad Antispam en Telegram</p>
                     <p>Entra al grupo oficial de México. Consulta dudas, reporta estafas telefónicas y mantente protegido en tiempo real con miles de usuarios.</p>
                 </div>
             </div>
@@ -561,7 +562,7 @@
 
     <!-- FAQs Schema.org -->
     <section class="faqs" itemscope itemtype="https://schema.org/FAQPage">
-        <h3>Preguntas Frecuentes</h3>
+        <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--text-main); margin-bottom: 1.25rem;">❓ Preguntas Frecuentes</h2>
         
         <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
             <summary itemprop="name">¿Qué debo hacer si recibo una llamada de extorsión telefónica en México?</summary>
@@ -599,7 +600,7 @@
 
         <div style="max-width: 500px; margin: 0 auto;">
             <form action="{{ route('search') }}" method="GET" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <input type="tel" name="q" placeholder="Número sospechoso a 10 dígitos (ej: 55 1234 5678)" required style="flex: 1; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: var(--radius); font-size: 1rem; min-width: 200px;">
+                <input type="tel" name="q" placeholder="Número sospechoso a 10 dígitos (ej: 55 1234 5678)" aria-label="Ingresa el número sospechoso para identificar y reportar" required style="flex: 1; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: var(--radius); font-size: 1rem; min-width: 200px;">
                 <button type="submit" class="btn btn-primary" style="padding: 0.75rem 1.25rem;">
                     Identificar y Reportar
                 </button>
@@ -611,7 +612,7 @@
     <div class="eeat-author-card">
         <img src="{{ asset('images/victor-alonso.webp') }}" alt="Víctor Alonso - Desarrollador y Especialista SEO" class="eeat-avatar">
         <div class="eeat-info">
-            <h4>Revisado y verificado por Víctor Alonso</h4>
+            <h3>Revisado y verificado por Víctor Alonso</h3>
             <p>Especialista en Desarrollo Web y SEO. Creador de QuiénLlama, comprometido con la transparencia en telecomunicaciones y la protección ciudadana frente a extorsiones, fraudes y spam telefónico en México, España, Chile y Argentina.</p>
             <div class="eeat-links">
                 <a href="https://victor-alonso.es" target="_blank" rel="noopener noreferrer">🌍 victor-alonso.es</a> ·

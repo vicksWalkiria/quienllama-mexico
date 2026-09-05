@@ -137,7 +137,7 @@
             --background: #f8fafc;
             --surface: #ffffff;
             --text-main: #0f172a;
-            --text-muted: #64748b;
+            --text-muted: #475569;
             --border: #e2e8f0;
             --border-hover: #cbd5e1;
             --success: #006847;
@@ -449,7 +449,7 @@
         }
 
         .nav-telegram-btn {
-            background: #0088cc !important;
+            background: #006699 !important;
             color: #ffffff !important;
             padding: 0.45rem 0.95rem !important;
             border-radius: 9999px !important;
@@ -457,19 +457,19 @@
             display: inline-flex !important;
             align-items: center !important;
             gap: 0.35rem !important;
-            box-shadow: 0 2px 6px rgba(0, 136, 204, 0.35) !important;
+            box-shadow: 0 2px 6px rgba(0, 102, 153, 0.35) !important;
             text-decoration: none !important;
             transition: transform 0.15s, background 0.15s !important;
         }
         .nav-telegram-btn:hover {
-            background: #0077b5 !important;
+            background: #004d73 !important;
             transform: translateY(-1px) !important;
         }
         .footer-telegram-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: #0088cc !important;
+            background: #006699 !important;
             color: #ffffff !important;
             padding: 8px 16px;
             border-radius: 9999px;
@@ -477,11 +477,11 @@
             text-decoration: none !important;
             font-size: 0.86rem;
             margin-top: 0.75rem;
-            box-shadow: 0 2px 8px rgba(0, 136, 204, 0.25);
+            box-shadow: 0 2px 8px rgba(0, 102, 153, 0.25);
             transition: transform 0.15s, background 0.15s;
         }
         .footer-telegram-btn:hover {
-            background: #0077b5 !important;
+            background: #004d73 !important;
             color: #ffffff !important;
             transform: translateY(-1px);
         }
@@ -516,7 +516,8 @@
             justify-content: center;
             flex-shrink: 0;
         }
-        .telegram-banner-text h3 {
+        .telegram-banner-text h3,
+        .telegram-banner-text .telegram-banner-title {
             color: #ffffff !important;
             font-size: 1.15rem;
             font-weight: 800;
@@ -532,7 +533,7 @@
         }
         .telegram-banner-btn {
             background: #ffffff;
-            color: #0088cc !important;
+            color: #005b8e !important;
             font-weight: 800;
             font-size: 0.92rem;
             padding: 0.8rem 1.35rem;
@@ -550,6 +551,16 @@
             background: #f8fafc;
             transform: translateY(-2px);
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+        }
+        /* Google Funding Choices CMP A11y Contrast Overrides */
+        .fc-consent-root .fc-dialog .fc-faq-label {
+            color: #1e293b !important;
+        }
+        .fc-consent-root .fc-dialog .fc-footer a {
+            color: #0f172a !important;
+        }
+        .fc-consent-root .fc-dialog .fc-manage-options-third-button-label {
+            color: #0f172a !important;
         }
         @media (max-width: 768px) {
             .telegram-banner-cta {
@@ -571,7 +582,8 @@
                 width: 26px;
                 height: 26px;
             }
-            .telegram-banner-text h3 {
+            .telegram-banner-text h3,
+            .telegram-banner-text .telegram-banner-title {
                 font-size: 1.05rem;
             }
             .telegram-banner-text p {
