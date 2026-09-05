@@ -11,7 +11,7 @@ class TelegramAlertService
     /**
      * Enviar alerta automática de denuncia o comentario al Topic de Telegram correspondiente.
      */
-    public static function sendSpamReport(Phone $phone, Comment $comment, string $countryCode = 'MX'): bool
+    public static function sendSpamReport(Phone $phone, Comment $comment, string $countryCode = 'MX', bool $isFastVote = false, string $source = 'Web'): bool
     {
         $botToken = config('services.telegram.bot_token') ?: env('TELEGRAM_BOT_TOKEN');
         $chatId = config('services.telegram.chat_id') ?: env('TELEGRAM_CHAT_ID', '-1004307956048');
@@ -41,18 +41,28 @@ class TelegramAlertService
         $url = route('phone.show', $phone->number);
         $author = htmlspecialchars($comment->author_name ?: 'Anónimo');
         $reason = htmlspecialchars($comment->reason ?: 'Llamada sospechosa');
-        $content = htmlspecialchars(mb_strimwidth(strip_tags($comment->content), 0, 500, '...'));
+        $content = htmlspecialchars(mb_strimwidth(strip_tags((string)$comment->content), 0, 500, '...'));
         $location = htmlspecialchars($phone->location ?: 'México');
+        $badge = ($source === 'App') ? '[App 📱]' : '[Web 🌐]';
 
-        $text = "🚨 <b>Nueva Denuncia en QuiénLlama {$countryFlag}</b>\n\n"
-              . "📞 <b>Número:</b> <code>{$formatted}</code>\n"
-              . "📍 <b>Ubicación:</b> {$location}\n"
-              . "⚠️ <b>Motivo:</b> {$reason}\n"
-              . "👤 <b>Autor:</b> {$author}\n"
-              . "📊 <b>Puntuación SPAM:</b> {$phone->spam_score}/100\n\n"
-              . "💬 <b>Detalle del reporte:</b>\n"
-              . "<i>\"{$content}\"</i>\n\n"
-              . "🔗 <a href=\"{$url}\">Ver ficha completa y comentarios en la web</a>";
+        if ($isFastVote) {
+            $text = "⚡ <b>Nueva Denuncia Rápida {$badge} en QuiénLlama {$countryFlag}</b>\n\n"
+                  . "📞 <b>Número:</b> <code>{$formatted}</code>\n"
+                  . "📍 <b>Ubicación:</b> {$location}\n"
+                  . "⚠️ <b>Motivo:</b> {$reason}\n"
+                  . "📊 <b>Puntuación SPAM:</b> {$phone->spam_score}/100\n\n"
+                  . "🔗 <a href=\"{$url}\">Ver ficha en la web</a>";
+        } else {
+            $text = "🚨 <b>Nueva Denuncia {$badge} en QuiénLlama {$countryFlag}</b>\n\n"
+                  . "📞 <b>Número:</b> <code>{$formatted}</code>\n"
+                  . "📍 <b>Ubicación:</b> {$location}\n"
+                  . "⚠️ <b>Motivo:</b> {$reason}\n"
+                  . "👤 <b>Autor:</b> {$author}\n"
+                  . "📊 <b>Puntuación SPAM:</b> {$phone->spam_score}/100\n\n"
+                  . "💬 <b>Detalle del reporte:</b>\n"
+                  . "<i>\"{$content}\"</i>\n\n"
+                  . "🔗 <a href=\"{$url}\">Ver ficha completa y comentarios en la web</a>";
+        }
 
         $payload = [
             'chat_id' => $chatId,

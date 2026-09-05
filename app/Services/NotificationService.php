@@ -10,21 +10,48 @@ use Illuminate\Support\Facades\Log;
 class NotificationService
 {
     /**
+     * Determina si un comentario contiene texto redactado real
+     */
+    public static function isRealCommentText(?string $content): bool
+    {
+        $t = trim((string)$content);
+        if (empty($t)) return false;
+        if ($t === 'Reportado por usuario de la comunidad de QuiénLlama') return false;
+        if (str_starts_with($t, 'Reporte rápido:')) return false;
+        if (str_starts_with($t, 'Reportado como:')) return false;
+        return true;
+    }
+
+    /**
      * Enviar alerta por email al administrador cuando se reporta un nuevo número con comentario.
      */
-    public static function sendSpamReportAlert(Phone $phone, Comment $comment, Request $request): bool
+    public static function sendSpamReportAlert(Phone $phone, Comment $comment, ?Request $request = null, string $source = 'Web'): bool
     {
+        $hasReal = self::isRealCommentText($comment->content);
+
+        // Enviar siempre alerta al Topic de México en Telegram
+        try {
+            TelegramAlertService::sendSpamReport($phone, $comment, 'MX', isFastVote: !$hasReal, source: $source);
+        } catch (\Throwable $e) {
+            // Silencioso para no interferir con la petición
+        }
+
+        // Si no tiene texto real redactado, no se envía email inmediato (se consolida en el digest)
+        if (!$hasReal) {
+            return true;
+        }
+
         $adminEmail = config('mail.admin_email') ?: (env('ADMIN_EMAIL') ?: 'victor@walkiriaapps.com');
         if (empty($adminEmail)) {
             return false;
         }
 
-        $formatted = $phone->formatted();
-        $dialing = $phone->details();
+        $formatted = method_exists($phone, 'formatted') ? $phone->formatted() : $phone->number;
+        $dialing = method_exists($phone, 'details') ? $phone->details() : [];
         $url = route('phone.show', $phone->number);
-        $subject = "[QuiénLlama México] Nueva Denuncia Spam: {$formatted}";
+        $subject = "[QuiénLlama México - {$source}] Nueva Denuncia Spam: {$formatted}";
 
-        $message = "Se ha reportado un nuevo número en QuiénLlama México 🇲🇽\n\n"
+        $message = "Se ha reportado un nuevo número en QuiénLlama México 🇲🇽 [Canal: {$source}]\n\n"
                  . "Teléfono: {$formatted}\n"
                  . "Formato Internacional: " . ($dialing['international'] ?? '+52' . $phone->number) . "\n"
                  . "Ubicación / Clave LADA: {$phone->location} (LADA {$phone->area_code})\n"
@@ -41,13 +68,6 @@ class NotificationService
         $headers = "From: noreply@{$host}\r\n"
                  . "Content-Type: text/plain; charset=UTF-8\r\n"
                  . "X-Mailer: PHP/" . phpversion() . "\r\n";
-
-        // Enviar también alerta al Topic de México en Telegram
-        try {
-            TelegramAlertService::sendSpamReport($phone, $comment, 'MX');
-        } catch (\Throwable $e) {
-            // Silencioso para no interferir con la petición
-        }
 
         try {
             return @mail($adminEmail, $subject, $message, $headers);

@@ -150,7 +150,7 @@ class PhoneController extends Controller
         $request->validate(['reason' => 'required|string|max:100']);
         $phone = Phone::where('number', $clean)->firstOrFail();
 
-        Comment::create([
+        $comment = Comment::create([
             'phone_id' => $phone->id,
             'author_name' => 'Votante anónimo',
             'content' => 'Reportado como: ' . $request->reason,
@@ -159,6 +159,11 @@ class PhoneController extends Controller
         ]);
 
         $phone->increment('spam_score', 5);
+
+        // Notificar al Topic de México en Telegram (denuncia rápida)
+        try {
+            \App\Services\TelegramAlertService::sendSpamReport($phone, $comment, 'MX', isFastVote: true, source: 'Web');
+        } catch (\Throwable $e) {}
 
         AnalyticsEvent::create([
             'event_type' => 'select_poll_reason',
