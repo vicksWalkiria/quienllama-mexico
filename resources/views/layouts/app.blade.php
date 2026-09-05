@@ -555,7 +555,9 @@
         /* Google Funding Choices CMP A11y Contrast Overrides */
         html body div.fc-consent-root .fc-dialog,
         html body div.fc-consent-root .fc-dialog-content,
-        html body div.fc-consent-root .fc-dialog-scrollable-content {
+        html body div.fc-consent-root .fc-dialog-scrollable-content,
+        html body div.fc-consent-root .fc-footer,
+        html body div.fc-consent-root .fc-footer p {
             background-color: #ffffff !important;
         }
         html body div.fc-consent-root .fc-faq-header,
@@ -567,6 +569,7 @@
         html body div.fc-consent-root a.fc-vendors-list-dialog,
         html body div.fc-consent-root .fc-footer-link-v2 {
             color: #0f172a !important;
+            background-color: #ffffff !important;
         }
         html body div.fc-consent-root .fc-cta-manage-options,
         html body div.fc-consent-root .fc-manage-options-third-button,
