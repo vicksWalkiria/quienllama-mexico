@@ -937,7 +937,8 @@
             gap: 2.5rem;
         }
 
-        .footer-col h4 {
+        .footer-col h4,
+        .footer-col h3 {
             font-size: 0.92rem;
             font-weight: 800;
             color: var(--text-main);
@@ -1351,7 +1352,7 @@
             </div>
 
             <div class="footer-col">
-                <h4>Herramientas</h4>
+                <h3>Herramientas</h3>
                 <ul>
                     <li><a href="{{ route('home') }}">Buscador de Teléfonos</a></li>
                     <li><a href="{{ url('/app') }}" style="color:var(--primary); font-weight:700" onclick="if(typeof trackGoal==='function'){trackGoal('app_nav_click', {event_label:'footer_mx'});}">📲 App Android (Google Play)</a></li>
@@ -1362,7 +1363,7 @@
             </div>
 
             <div class="footer-col">
-                <h4>Ciudades y Claves LADA</h4>
+                <h3>Ciudades y Claves LADA</h3>
                 <ul>
                     <li><a href="{{ route('area-codes.show', '55') }}">CDMX y Valle de México (+52 55)</a></li>
                     <li><a href="{{ route('area-codes.show', '33') }}">Guadalajara y Zapopan (+52 33)</a></li>
@@ -1376,7 +1377,7 @@
             </div>
 
             <div class="footer-col">
-                <h4>QuiénLlama & Legal</h4>
+                <h3>QuiénLlama & Legal</h3>
                 <ul>
                     <li><a href="{{ route('legal.about') }}" style="color:var(--primary); font-weight:700">Sobre el Desarrollador (EEAT)</a></li>
                     <li><a href="{{ route('contact.index') }}">Contacto y Soporte</a></li>
