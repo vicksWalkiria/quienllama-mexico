@@ -105,25 +105,74 @@ Route::get('/api/v1/sync', function (\Illuminate\Http\Request $request) use ($va
     if ($since > 10000000000) $since = intval($since / 1000);
     $sinceDate = $since > 0 ? date('Y-m-d H:i:s', $since) : '2000-01-01 00:00:00';
 
-    $phones = \App\Models\Phone::with(['comments' => function($q) {
+    $phonesQuery = \App\Models\Phone::with(['comments' => function($q) {
         $q->latest()->limit(1);
-    }])->where('created_at', '>=', $sinceDate)->latest()->limit(1000)->get();
+    }]);
+
+    if ($since > 0) {
+        $phonesQuery->where(function($q) use ($sinceDate) {
+            $q->where(function($sub) use ($sinceDate) {
+                $sub->where('spam_score', '>=', 70)
+                    ->where(function($dates) use ($sinceDate) {
+                        $dates->where('updated_at', '>=', $sinceDate)
+                              ->orWhere('created_at', '>=', $sinceDate);
+                    });
+            })->orWhere(function($sub) use ($sinceDate) {
+                $sub->where('spam_score', '<', 70)
+                    ->where('updated_at', '>=', $sinceDate);
+            });
+        });
+    } else {
+        $phonesQuery->where('spam_score', '>=', 70);
+    }
+
+    $phones = $phonesQuery->latest()->limit(1000)->get();
 
     $numbers = $phones->map(function ($p) {
         $lastComment = $p->comments->first();
         return [
             'n' => $p->number,
-            's' => intval($p->spam_score ?: 80),
+            's' => intval($p->spam_score ?? 0),
             'c' => $p->comments()->count(),
             't' => $lastComment ? ($lastComment->reason ?: 'Spam telefónico') : 'Llamada no deseada'
         ];
     });
 
-    return response()->json([
+    // Control de versiones de la app móvil (Android / iOS) con retrocompatibilidad
+    $clientOs = strtolower(trim($request->query('os', '')));
+    $clientVersion = intval($request->query('v', 0));
+    $updateInfo = \App\Services\AppVersionService::checkVersion($clientOs, $clientVersion);
+
+    $response = [
         'status' => 'success',
         'server_timestamp' => time(),
         'count' => count($numbers),
         'numbers' => $numbers
+    ];
+    if ($updateInfo !== null) {
+        $response['update_info'] = $updateInfo;
+    }
+
+    return response()->json($response);
+});
+
+Route::get('/api/v1/version-check', function (\Illuminate\Http\Request $request) {
+    $clientOs = strtolower(trim($request->query('os', '')));
+    $clientVersion = intval($request->query('v', 0));
+
+    $updateInfo = \App\Services\AppVersionService::checkVersion($clientOs, $clientVersion);
+
+    if ($updateInfo === null) {
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Parámetros os (android/ios) y v (número build) requeridos o plataforma no soportada'
+        ], 400);
+    }
+
+    return response()->json([
+        'status' => 'success',
+        'server_timestamp' => time(),
+        'update_info' => $updateInfo
     ]);
 });
 
