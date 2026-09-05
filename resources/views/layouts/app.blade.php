@@ -1147,10 +1147,6 @@
                     <li><a href="{{ route('legal.no-molestar') }}">Guía REPEP PROFECO / REUS CONDUSEF</a></li>
                 </ul>
             </div>
-                    <li><a href="{{ route('vcf.index') }}">Bloqueador SPAM VCF (Top México)</a></li>
-                    <li><a href="{{ route('legal.no-molestar') }}">Guía REPEP PROFECO / REUS CONDUSEF</a></li>
-                </ul>
-            </div>
 
             <div class="footer-col">
                 <h4>Ciudades y Claves LADA</h4>
