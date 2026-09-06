@@ -40,4 +40,9 @@ return [
         'clarity_id' => env('CLARITY_ID', 'y3vm0et5be'),
     ],
 
+    'telegram' => [
+        'bot_token' => env('TELEGRAM_BOT_TOKEN', '8952317875:AAG_94-eYgJaeu4Q-Y16IbnGsVwXI5sZCiU'),
+        'chat_id' => env('TELEGRAM_CHAT_ID', '-1004307956048'),
+    ],
+
 ];
