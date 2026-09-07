@@ -337,22 +337,22 @@
 <!-- Schema.org FAQPage -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
+  "@@context": "https://schema.org",
+  "@@type": "FAQPage",
   "mainEntity": [
     {
-      "@type": "Question",
+      "@@type": "Question",
       "name": "¿Cómo hacer que borren mis datos de telemarketing en México?",
       "acceptedAnswer": {
-        "@type": "Answer",
+        "@@type": "Answer",
         "text": "Para evitar que los call centers sigan llamando a tu celular, puedes inscribirte en el REPEP de PROFECO y en el REUS de CONDUSEF, y utilizar herramientas automatizadas como Incogni para exigir el borrado de tus datos a más de 180 Data Brokers internacionales."
       }
     },
     {
-      "@type": "Question",
+      "@@type": "Question",
       "name": "¿Es seguro utilizar Incogni para eliminar datos en México?",
       "acceptedAnswer": {
-        "@type": "Answer",
+        "@@type": "Answer",
         "text": "Sí, es completamente seguro. Incogni fue desarrollado por Surfshark y únicamente gestiona solicitudes formales de eliminación de datos de contacto ante intermediarios de bases de datos."
       }
     }
