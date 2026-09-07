@@ -25,6 +25,9 @@ Route::get('/repep', function () { return redirect()->route('legal.no-molestar',
 Route::get('/condusef-reus', function () { return redirect()->route('legal.no-molestar', [], 301); });
 Route::get('/reus', function () { return redirect()->route('legal.no-molestar', [], 301); });
 Route::get('/sernac-no-molestar', function () { return redirect()->route('legal.no-molestar', [], 301); });
+Route::get('/como-borrar-mis-datos', [LegalController::class, 'comoBorrarDatos'])->name('legal.borrar-datos');
+Route::get('/borrar-mis-datos', function () { return redirect()->route('legal.borrar-datos', [], 301); });
+Route::get('/como-eliminar-mis-datos', function () { return redirect()->route('legal.borrar-datos', [], 301); });
 Route::get('/privacidad', [LegalController::class, 'privacidad'])->name('legal.privacidad');
 Route::get('/terminos', [LegalController::class, 'terminos'])->name('legal.terminos');
 Route::get('/cookies', [LegalController::class, 'cookies'])->name('legal.cookies');

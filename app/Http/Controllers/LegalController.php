@@ -30,4 +30,9 @@ class LegalController extends Controller
     {
         return view('legal.about');
     }
+
+    public function comoBorrarDatos(): View
+    {
+        return view('legal.como_borrar_datos');
+    }
 }

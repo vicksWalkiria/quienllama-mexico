@@ -1359,6 +1359,7 @@
                     <li><a href="{{ route('area-codes.index') }}" style="color:var(--primary); font-weight:700">Claves LADA de México (IFT)</a></li>
                     <li><a href="{{ route('vcf.index') }}">Bloqueador SPAM VCF (Top México)</a></li>
                     <li><a href="{{ route('legal.no-molestar') }}">Guía REPEP PROFECO / REUS CONDUSEF</a></li>
+                    <li><a href="{{ route('legal.borrar-datos') }}" style="color:#006847; font-weight:700">🛡️ ¿Cómo borrar mis datos? (Incogni)</a></li>
                 </ul>
             </div>
 

@@ -401,6 +401,10 @@
             <span class="meter-pill">
                 👁️ {{ $phone->views }} consultas
             </span>
+
+            <a href="{{ route('legal.borrar-datos') }}" class="meter-pill" style="text-decoration:none; background:#f0fdf4; color:#006847; border: 1px solid #86efac; font-weight:700;" title="Guía: ¿Cómo hacer que borren mis datos personales de las listas de llamadas?">
+                🛡️ ¿Cómo hacer que borren mis datos?
+            </a>
         </div>
 
         <!-- Botones de Acción Rápida -->
@@ -415,6 +419,10 @@
 
             <a href="{{ route('legal.no-molestar') }}" class="btn-action btn-nollame">
                 ⚖️ REPEP PROFECO / REUS
+            </a>
+
+            <a href="{{ route('legal.borrar-datos') }}" class="btn-action" style="background:#f0fdf4; color:#14532d; border: 1.5px solid #86efac; text-decoration:none;" title="Guía: ¿Cómo hacer que borren mis datos?">
+                ❓ ¿Cómo borrar mis datos?
             </a>
 
             <a href="https://deal.incogni.io/aff_c?offer_id=2&aff_id=2891&aff_sub=ql_mx_topbtn" 
