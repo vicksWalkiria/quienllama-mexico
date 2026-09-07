@@ -10,13 +10,14 @@ class AppVersionService
      */
     const VERSIONS = [
         'android' => [
-            'latest_version' => 7,
-            'latest_version_name' => '1.0.6',
-            'min_version' => 5, // Retrocompatibilidad: versiones 5 y 6 pueden seguir usándose con aviso suave
+            'latest_version' => 8,
+            'latest_version_name' => '1.0.7',
+            'min_version' => 6, // Retrocompatibilidad: versiones 6 y 7 pueden seguir usándose con aviso suave
             'update_url' => 'https://play.google.com/store/apps/details?id=com.walkiria.quienllama',
             'title' => 'Nueva versión disponible',
             'message' => 'Actualiza QuiénLlama para seguir disfrutando de la máxima protección contra llamadas de spam y números sospechosos.',
             'history' => [
+                8 => ['name' => '1.0.7', 'date' => '2026-09-07', 'notes' => 'Registro de llamadas (READ_CALL_LOG), bloqueo local permanente y selector rápido de recientes'],
                 7 => ['name' => '1.0.6', 'date' => '2026-09-06', 'notes' => 'Avisador contactos, estabilidad de sincronización y control de versiones'],
                 6 => ['name' => '1.0.5', 'date' => '2026-09-06', 'notes' => 'Avisador contactos, eliminación de parpadeo de rol, semillas reales multipaís, control de versiones'],
                 5 => ['name' => '1.0.4', 'date' => '2026-09-01', 'notes' => 'Soporte Play Integrity, optimización de SQLite'],
