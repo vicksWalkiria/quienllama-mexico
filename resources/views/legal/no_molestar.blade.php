@@ -98,6 +98,22 @@
             </div>
         </div>
 
+        <!-- Bloque Preventivo Incogni Data Brokers -->
+        <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius:var(--radius-lg); padding:1.5rem; margin-bottom:2.5rem; display:flex; gap:1rem; align-items:flex-start">
+            <span style="font-size:1.8rem; line-height:1">🛡️</span>
+            <div>
+                <strong style="color:#14532d; font-size:1.05rem; display:block; margin-bottom:0.4rem">
+                    Medida preventiva integral: Eliminación de tus datos de Data Brokers
+                </strong>
+                <p style="color:#166534; font-size:0.92rem; line-height:1.6; margin-bottom:0.75rem">
+                    Tanto el REPEP como el REUS regulan a empresas formales registradas ante las autoridades mexicanas. Sin embargo, los call centers agresivos, estafadores y robocalls automatizadas adquieren lotes de teléfonos y datos personales en mercados secundarios y a través de intermediarios internacionales (Data Brokers).
+                </p>
+                <p style="color:#166534; font-size:0.92rem; line-height:1.6; margin:0">
+                    Para forzar la eliminación sistemática de tu número celular, nombre y correo en más de 180 empresas intermediarias de datos, te recomendamos el servicio de <a href="https://deal.incogni.io/aff_c?offer_id=2&aff_id=2891&aff_sub=ql_mx_repep" target="_blank" rel="noopener nofollow sponsored" style="color:#15803d; font-weight:800; text-decoration:underline;">Incogni (respaldado por Surfshark y con garantía de 30 días)</a>.
+                </p>
+            </div>
+        </div>
+
         <!-- CTA Buttons -->
         <div style="text-align:center; margin-bottom:3rem">
             <a href="https://repep.profeco.gob.mx/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:1rem; padding:0.85rem 2rem; margin-right:0.75rem">

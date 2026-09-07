@@ -120,6 +120,17 @@
         background: var(--primary-hover);
     }
 
+    .btn-incogni-top {
+        background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+        color: white;
+        box-shadow: 0 2px 6px rgba(13, 148, 136, 0.3);
+    }
+    .btn-incogni-top:hover {
+        background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+        color: white;
+        transform: translateY(-1px);
+    }
+
     .btn-wa {
         background: #25d366;
         color: white;
@@ -254,9 +265,6 @@
             white-space: normal !important;
             line-height: 1.25 !important;
             border-radius: 10px !important;
-        }
-        .action-btn-row .btn-nollame {
-            grid-column: 1 / -1 !important;
         }
         .card {
             padding: 1.25rem 1rem;
@@ -409,6 +417,13 @@
                 ⚖️ REPEP PROFECO / REUS
             </a>
 
+            <a href="https://deal.incogni.io/aff_c?offer_id=2&aff_id=2891&aff_sub=ql_mx_topbtn" 
+               target="_blank" rel="noopener nofollow sponsored" 
+               class="btn-action btn-incogni-top"
+               onclick="if(typeof trackGoal==='function'){trackGoal('incogni_click','phone_top_button');} if(typeof gtag==='function'){gtag('event','click_incogni_affiliate',{'source':'phone_top_button'});}"
+               title="Eliminar mis datos de bases de prospección con Incogni">
+                🛡️ Borrar mis datos (Incogni)
+            </a>
         </div>
 
         <!-- Alerta para Compartir por Redes Sociales -->
@@ -472,6 +487,64 @@
             </div>
         </form>
     </div>
+
+    <!-- ====== BLOQUE NATIVO RECOMENDADO: INCOGNI (ELIMINACIÓN DE DATOS Y TELEMARKETING MÉXICO) ====== -->
+    <section class="card incogni-promo-box" style="margin-top: 1.5rem; background: linear-gradient(135deg, #0b1528 0%, #162544 100%); border: 1.5px solid #2e446d; border-radius: 18px; padding: 1.75rem; color: #ffffff; box-shadow: 0 10px 25px -5px rgba(11, 21, 40, 0.35); position: relative; overflow: hidden;">
+        <!-- Elemento decorativo de fondo -->
+        <div style="position: absolute; top: -40px; right: -40px; width: 140px; height: 140px; background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, rgba(0,0,0,0) 70%); border-radius: 50%; pointer-events: none;"></div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem;">
+            <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.35); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: #34d399;">
+                <span>🛡️ Solución Definitiva &bull; Protección Legal de Datos</span>
+            </div>
+            <div style="font-size: 0.8rem; color: #94a3b8; font-weight: 600;">
+                Desarrollado por <strong style="color: #cbd5e1;">Surfshark</strong> &bull; ⭐ 4.5/5 en Trustpilot
+            </div>
+        </div>
+
+        <h2 style="font-size: 1.35rem; font-weight: 800; color: #ffffff; margin: 0 0 0.6rem 0; line-height: 1.35;">
+            ¿Harto de llamadas spam, bancos y cobranza? Elimina tu teléfono de raíz
+        </h2>
+
+        <p style="color: #cbd5e1; font-size: 0.94rem; line-height: 1.6; margin-bottom: 1.25rem;">
+            Bloquear números en tu celular ayuda, pero los despachos y comercializadoras compran continuamente tus datos a <strong>Data Brokers internacionales</strong>. Con <strong>Incogni</strong>, obligas legalmente a más de 180 empresas intermediarias a <u>eliminar de forma permanente tu número celular, nombre y correo</u> de sus listas de prospección.
+        </p>
+
+        <!-- Puntos clave con checks -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.75rem; margin-bottom: 1.4rem;">
+            <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; color: #e2e8f0;">
+                <span style="color: #10b981; font-size: 1.1rem; line-height: 1; font-weight: 900;">✓</span>
+                <div><strong>Reduce hasta un 90%</strong> las llamadas no deseadas y robocalls.</div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; color: #e2e8f0;">
+                <span style="color: #10b981; font-size: 1.1rem; line-height: 1; font-weight: 900;">✓</span>
+                <div><strong>100% Automatizado:</strong> Reclamaciones legales sin trámites burocráticos.</div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; color: #e2e8f0;">
+                <span style="color: #10b981; font-size: 1.1rem; line-height: 1; font-weight: 900;">✓</span>
+                <div><strong>Complemento al REPEP / REUS:</strong> Borrado continuo ante nuevos brokers.</div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; color: #e2e8f0;">
+                <span style="color: #10b981; font-size: 1.1rem; line-height: 1; font-weight: 900;">✓</span>
+                <div><strong>Garantía de reembolso de 30 días</strong> sin compromiso.</div>
+            </div>
+        </div>
+
+        <!-- Barra CTA -->
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.25rem;">
+            <div style="font-size: 0.84rem; color: #94a3b8;">
+                <span style="color: #fbbf24; font-weight: 700;">🎁 Promoción exclusiva para la comunidad QuiénLlama México</span>
+            </div>
+            <a href="https://deal.incogni.io/aff_c?offer_id=2&aff_id=2891&aff_sub=ql_mx_card" 
+               target="_blank" rel="noopener nofollow sponsored" 
+               class="btn-incogni-cta"
+               onclick="if(typeof trackGoal==='function'){trackGoal('incogni_click','phone_main_card');} if(typeof gtag==='function'){gtag('event','click_incogni_affiliate',{'source':'phone_main_card'});}"
+               style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 12px; font-weight: 800; font-size: 0.98rem; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); transition: transform 0.2s, box-shadow 0.2s;">
+                <span>Borrar mis datos de telemarketing con Incogni</span>
+                <span style="font-size: 1.1rem;">➔</span>
+            </a>
+        </div>
+    </section>
 
     <!-- Community Telegram Banner CTA -->
     <div class="telegram-banner-cta">
@@ -595,12 +668,21 @@
             </p>
         </div>
 
-        <div>
+        <div style="margin-bottom:1.25rem">
             <h4 style="font-size:1rem; font-weight:700; color:var(--text-main); margin-bottom:0.25rem">
                 ¿Cómo puedo bloquear este número en mi celular?
             </h4>
             <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6">
                 Puedes descargar directamente el contacto VCF con el botón superior para mandarlo a tu lista negra o bloquearlo desde la app de Teléfono de tu celular (Android o iPhone) en el registro de llamadas recientes.
+            </p>
+        </div>
+
+        <div>
+            <h4 style="font-size:1rem; font-weight:700; color:var(--text-main); margin-bottom:0.25rem">
+                ¿Cómo evitar que sigan vendiendo mi teléfono a despachos y empresas de telemarketing?
+            </h4>
+            <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6">
+                Además de inscribir tu línea en el <a href="{{ route('legal.no-molestar') }}" style="color:var(--primary); font-weight:700;">REPEP de PROFECO y REUS de CONDUSEF</a>, para detener la compraventa masiva de tu celular por intermediarios puedes utilizar <a href="https://deal.incogni.io/aff_c?offer_id=2&aff_id=2891&aff_sub=ql_mx_faq" target="_blank" rel="noopener nofollow sponsored" style="color:var(--primary); font-weight:700; text-decoration:underline;">Incogni</a>, servicio respaldado por Surfshark que exige el borrado legal continuo de tus datos a más de 180 Data Brokers.
             </p>
         </div>
     </div>
