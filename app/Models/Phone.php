@@ -72,12 +72,12 @@ class Phone extends Model
             ];
         } else {
             return [
-                'level' => 'Neutral',
-                'color' => '#3b82f6',
-                'bg' => '#dbeafe',
-                'text_color' => '#1e40af',
-                'badge' => 'Número Desconocido / Sin Denuncias Graves',
-                'icon' => 'ℹ️',
+                'level' => 'Potencialmente Seguro',
+                'color' => '#10b981',
+                'bg' => '#ecfdf5',
+                'text_color' => '#065f46',
+                'badge' => 'Número potencialmente seguro (sin reportes aún)',
+                'icon' => '✅',
             ];
         }
     }
