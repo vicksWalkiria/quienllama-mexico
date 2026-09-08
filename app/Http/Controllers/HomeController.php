@@ -22,21 +22,26 @@ class HomeController extends Controller
             ->limit(10)
             ->get();
 
-        // Últimos números con actividad / reportes
+        // Últimos números con actividad / reportes (50 para Google y Bing)
         $recentPhones = Phone::withCount('comments')
             ->latest('updated_at')
-            ->limit(10)
+            ->limit(50)
             ->get();
 
-        // Últimos comentarios ciudadanos
+        // Últimos comentarios ciudadanos (12 opiniones)
         $recentComments = Comment::with('phone')
             ->latest()
-            ->limit(8)
+            ->limit(12)
             ->get();
 
-        // Números para la cuadrícula de pastillas (pills)
-        $pillsPhones = Phone::orderByDesc('views')
-            ->limit(32)
+        // Números para la cuadrícula de pastillas (50 números recientes)
+        $pillsPhones = Phone::latest('updated_at')
+            ->limit(50)
+            ->get();
+
+        // Más teléfonos investigados (16 para cuadrícula 4x4)
+        $randomPhones = Phone::inRandomOrder()
+            ->limit(16)
             ->get();
 
         return view('home', compact(
@@ -46,7 +51,8 @@ class HomeController extends Controller
             'topSpamPhones',
             'recentPhones',
             'recentComments',
-            'pillsPhones'
+            'pillsPhones',
+            'randomPhones'
         ));
     }
 }

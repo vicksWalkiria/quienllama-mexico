@@ -215,24 +215,58 @@
         gap: 0.5rem;
     }
 
-    /* Pills Grid */
+    /* Pills Grid (4 Columns Layout) */
     .pills-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.6rem;
-        margin-bottom: 3rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.65rem;
+        margin-bottom: 2.5rem;
+    }
+
+    @media (max-width: 1024px) {
+        .pills-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .pills-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .pills-grid {
+            grid-template-columns: 1fr;
+        }
     }
 
     .phone-pill {
-        display: inline-flex;
+        display: flex;
         align-items: center;
-        gap: 0.5rem;
-        padding: 0.45rem 0.85rem;
+        justify-content: space-between;
+        gap: 0.4rem;
+        padding: 0.55rem 0.85rem;
         border-radius: 9999px;
-        font-size: 0.9rem;
-        font-weight: 700;
+        font-size: 0.92rem;
+        font-weight: 600;
         text-decoration: none;
-        transition: transform 0.1s, box-shadow 0.1s;
+        transition: transform 0.15s, box-shadow 0.15s, background 0.2s;
+        cursor: pointer;
+        white-space: nowrap;
+        letter-spacing: 0.3px;
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    .phone-pill .pill-number {
+        font-variant-numeric: tabular-nums;
+        font-weight: 700;
+    }
+
+    .phone-pill .pill-badge {
+        font-size: 0.78rem;
+        font-weight: 600;
     }
 
     .phone-pill:hover {
@@ -497,41 +531,35 @@
         </div>
     </section>
 
-    <!-- Pills Grid: Números Investigados -->
-    @if($pillsPhones->isNotEmpty())
-    <section style="margin-bottom: 2.5rem;">
-        <div class="section-header">
-            <h2>
-                <span>📞</span> Teléfonos y Celulares Reportados en México
+    <!-- Últimas opiniones y denuncias de la comunidad (12 comentarios) -->
+    @if(isset($recentComments) && $recentComments->isNotEmpty())
+    <section class="latest-comments-section" style="margin-top: 2rem; margin-bottom: 3rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+            <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--text-main); margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+                <span>💬</span> Últimas opiniones y denuncias en México
             </h2>
-            <span style="font-size: 0.82rem; color: var(--text-muted); font-weight: 600;">
-                {{ number_format($totalPhones) }} números registrados
-            </span>
+            <span style="font-size: 0.8rem; background: #fee2e2; color: #991b1b; font-weight: 700; padding: 3px 10px; border-radius: 20px;">Comunidad en directo</span>
         </div>
 
-        <div class="pills-grid">
-            @foreach($pillsPhones as $p)
-                <a href="{{ route('phone.show', $p->number) }}" class="phone-pill {{ $p->spam_score > 0 ? 'pill-danger' : 'pill-neutral' }}">
-                    <span class="pill-number">{{ $p->formatted() }}</span>
-                    <span class="pill-badge">
-                        {{ $p->area_code ? '📍 LADA ' . $p->area_code : '🇲🇽' }}
-                    </span>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+            @foreach($recentComments as $c)
+                <a href="{{ route('phone.show', $c->phone->number ?? $c->phone_id) }}" style="display: block; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem; text-decoration: none; color: inherit; box-shadow: var(--shadow-sm); transition: transform 0.2s, box-shadow 0.2s; position: relative;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <strong style="font-size: 1.15rem; color: var(--primary); font-weight: 800;">{{ optional($c->phone)->formatted() ?? $c->phone_id }}</strong>
+                        <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 6px; {{ str_contains($c->reason ?? '', 'Estafa') ? 'background: #fee2e2; color: #b91c1c;' : 'background: #fef3c7; color: #92400e;' }}">
+                            {{ $c->reason ?? 'Sospechoso' }}
+                        </span>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--text-main); line-height: 1.4; margin: 0.5rem 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                        "{{ $c->content }}"
+                    </p>
+                    <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 0.6rem; border-top: 1px dashed var(--border); padding-top: 0.5rem;">
+                        <span>📅 {{ $c->created_at ? $c->created_at->format('d/m/Y H:i') : 'Reciente' }}</span>
+                        <span style="font-weight: 600; color: var(--primary);">Ver teléfono ➔</span>
+                    </div>
                 </a>
             @endforeach
         </div>
-    </section>
-    @else
-    <section style="margin-bottom: 2.5rem; text-align: center; background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem 1.5rem; box-shadow: var(--shadow-sm);">
-        <span style="font-size: 2.2rem; display: block; margin-bottom: 0.5rem;">🛡️</span>
-        <h2 style="font-size: 1.25rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">
-            Directorio Libre de SPAM en Construcción Colaborativa
-        </h2>
-        <p style="color: var(--text-muted); font-size: 0.92rem; max-width: 540px; margin: 0 auto 1.25rem; line-height: 1.5;">
-            Solo publicamos reportes y números reales aportados por la comunidad. Si recibiste una llamada sospechosa en México, búscalo arriba o notifícalo para alertar a otros usuarios.
-        </p>
-        <a href="{{ route('area-codes.index') }}" class="btn btn-outline" style="font-size: 0.88rem; padding: 0.5rem 1.2rem; display:inline-flex; align-items:center; gap:6px;">
-            <span>📍</span> Ver Directorio de Claves LADA IFT ➔
-        </a>
     </section>
     @endif
 
@@ -607,6 +635,47 @@
             </form>
         </div>
     </section>
+
+    <!-- Directorio de Enlaces: Últimos números investigados y aleatorios (SEO & Crawl) -->
+    <section class="recent-searches" style="margin-top: 3rem; margin-bottom: 2.5rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+            <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--text-main); margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+                <span>📞</span> Últimas búsquedas y reportes en México
+            </h2>
+            <span style="font-size: 0.8rem; background: #fee2e2; color: #991b1b; font-weight: 700; padding: 3px 10px; border-radius: 20px;">Actualizado en directo</span>
+        </div>
+
+        @if(isset($pillsPhones) && $pillsPhones->isNotEmpty())
+        <div class="pills-grid">
+            @foreach($pillsPhones as $p)
+                <a href="{{ route('phone.show', $p->number) }}" class="phone-pill {{ $p->spam_score > 0 ? 'pill-danger' : 'pill-neutral' }}">
+                    <span class="pill-number">{{ $p->formatted() }}</span>
+                    <span class="pill-badge">
+                        {{ $p->area_code ? '📍 LADA ' . $p->area_code : '🇲🇽' }}{{ $p->comments_count ? ' · 💬 ' . $p->comments_count : '' }}
+                    </span>
+                </a>
+            @endforeach
+        </div>
+        @endif
+    </section>
+
+    @if(isset($randomPhones) && $randomPhones->isNotEmpty())
+    <section class="random-phones" style="margin-top: 2rem; margin-bottom: 2.5rem;">
+        <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--text-main); margin: 0 0 1.25rem 0; display: flex; align-items: center; gap: 0.5rem;">
+            <span>🔎</span> Más teléfonos investigados
+        </h2>
+        <div class="pills-grid">
+            @foreach($randomPhones as $p)
+                <a href="{{ route('phone.show', $p->number) }}" class="phone-pill pill-neutral">
+                    <span class="pill-number">{{ $p->formatted() }}</span>
+                    <span class="pill-badge">
+                        {{ $p->area_code ? '📍 LADA ' . $p->area_code : '🔎' }}{{ $p->comments_count ? ' · 💬 ' . $p->comments_count : '' }}
+                    </span>
+                </a>
+            @endforeach
+        </div>
+    </section>
+    @endif
 
     <!-- EEAT Author Card (Víctor Alonso) -->
     <div class="eeat-author-card">
