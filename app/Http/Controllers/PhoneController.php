@@ -52,7 +52,7 @@ class PhoneController extends Controller
 
         $comments = $phone->comments()->paginate(15);
         $risk = $phone->getRiskLevel();
-        $dialing = $phone->details();
+        $dialing = array_merge($phone->details(), $phone->dialingInfo());
         $formatted = $phone->formatted();
 
         // Estadísticas de motivos de llamada
