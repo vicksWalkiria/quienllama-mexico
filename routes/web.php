@@ -192,22 +192,27 @@ Route::get('/api/v1/phone/{number}', function (\Illuminate\Http\Request $request
         return response()->json(['status' => 'not_found', 'phone' => null, 'comments' => []]);
     }
 
-    $comments = $phone->comments()->latest()->limit(20)->get()->map(function ($c) {
-        return [
-            'id' => $c->id,
-            'author' => 'Usuario',
-            'reason' => $c->reason ?: 'Spam',
-            'content' => $c->content,
-            'created_at' => $c->created_at ? $c->created_at->format('Y-m-d H:i:s') : 'Reciente'
-        ];
-    });
+    $totalReports = $phone->comments()->count();
+    $comments = $phone->comments()->latest()->limit(50)->get()
+        ->filter(fn($c) => \App\Services\NotificationService::isRealCommentText($c->content))
+        ->take(20)
+        ->values()
+        ->map(function ($c) {
+            return [
+                'id' => $c->id,
+                'author' => 'Usuario',
+                'reason' => $c->reason ?: 'Spam',
+                'content' => $c->content,
+                'created_at' => $c->created_at ? $c->created_at->format('Y-m-d H:i:s') : 'Reciente'
+            ];
+        });
 
     return response()->json([
         'status' => 'success',
         'phone' => [
             'number' => $phone->number,
             'spam_score' => intval($phone->spam_score ?: 80),
-            'reports_count' => count($comments)
+            'reports_count' => $totalReports
         ],
         'comments' => $comments
     ]);
@@ -222,8 +227,12 @@ Route::post('/api/v1/report', function (\Illuminate\Http\Request $request) use (
     $reason = htmlspecialchars(strip_tags(trim($request->input('reason', 'Otro'))), ENT_QUOTES, 'UTF-8');
     $content = htmlspecialchars(strip_tags(trim($request->input('content', ''))), ENT_QUOTES, 'UTF-8');
 
-    if (strlen($number) < 7 || empty($content)) {
+    if (strlen($number) < 7) {
         return response()->json(['status' => 'error', 'message' => 'Datos inválidos'], 422);
+    }
+
+    if (empty($content)) {
+        $content = "Reporte rápido: " . $reason;
     }
 
     $phone = \App\Models\Phone::firstOrCreate(
