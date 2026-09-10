@@ -10,9 +10,9 @@ class AppVersionService
      */
     const VERSIONS = [
         'android' => [
-            'latest_version' => 10,
-            'latest_version_name' => '1.0.9',
-            'min_version' => 7, // Retrocompatibilidad: versiones 7, 8 y 9 pueden seguir usándose con aviso suave (sin bloqueo obligatorio)
+            'latest_version' => 9,
+            'latest_version_name' => '1.0.8',
+            'min_version' => 7, // Retrocompatibilidad: versiones 7 y 8 pueden seguir usándose con aviso suave
             'update_url' => 'https://play.google.com/store/apps/details?id=com.walkiria.quienllama',
             'title' => 'Nueva versión disponible',
             'message' => 'Actualiza QuiénLlama para seguir disfrutando de la máxima protección contra llamadas de spam y números sospechosos.',
