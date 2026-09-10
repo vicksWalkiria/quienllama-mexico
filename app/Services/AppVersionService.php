@@ -12,7 +12,7 @@ class AppVersionService
         'android' => [
             'latest_version' => 10,
             'latest_version_name' => '1.0.9',
-            'min_version' => 8, // Retrocompatibilidad: versiones 8 y 9 pueden seguir usándose con aviso suave
+            'min_version' => 7, // Retrocompatibilidad: versiones 7, 8 y 9 pueden seguir usándose con aviso suave (sin bloqueo obligatorio)
             'update_url' => 'https://play.google.com/store/apps/details?id=com.walkiria.quienllama',
             'title' => 'Nueva versión disponible',
             'message' => 'Actualiza QuiénLlama para seguir disfrutando de la máxima protección contra llamadas de spam y números sospechosos.',
