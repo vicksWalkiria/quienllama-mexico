@@ -896,29 +896,66 @@
                 gap: 4px !important;
             }
         }
-        @media (max-width: 480px) {
+        @media (max-width: 640px) {
             .app-global-banner-mx {
-                padding: 0.9rem 0.9rem 0.85rem;
+                padding: 0.95rem 0.9rem 0.9rem;
                 gap: 0.65rem;
+                border-radius: 14px;
+                margin: 0.65rem auto 1.15rem;
+            }
+            .app-banner-left {
+                gap: 0.75rem;
             }
             .app-banner-logo {
-                width: 46px;
-                height: 46px;
+                width: 48px;
+                height: 48px;
                 border-radius: 11px;
             }
             .app-banner-title {
                 font-size: 0.92rem;
+                line-height: 1.3;
             }
             .app-banner-desc {
                 font-size: 0.78rem;
-                line-height: 1.3;
+                line-height: 1.35;
+            }
+            .app-banner-actions {
+                display: flex !important;
+                flex-direction: column !important;
+                width: 100% !important;
+                gap: 0.45rem !important;
+                margin-top: 0.2rem !important;
+            }
+            .btn-app-playstore {
+                width: 100% !important;
+                box-sizing: border-box !important;
+                padding: 10px 14px !important;
+                border-radius: 10px !important;
+                justify-content: center !important;
+                min-height: 44px !important;
+                gap: 8px !important;
+            }
+            .btn-app-playstore svg {
+                width: 20px !important;
+                height: 20px !important;
+                flex-shrink: 0 !important;
+            }
+            .btn-app-sub {
+                font-size: 0.54rem !important;
             }
             .btn-app-main {
-                font-size: 0.80rem !important;
+                font-size: 0.90rem !important;
             }
             .btn-app-learnmore {
-                font-size: 0.78rem !important;
-                padding: 7px 6px !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+                padding: 9px 12px !important;
+                border-radius: 10px !important;
+                font-size: 0.82rem !important;
+                justify-content: center !important;
+                text-align: center !important;
+                min-height: 40px !important;
+                white-space: normal !important;
             }
         }
 
