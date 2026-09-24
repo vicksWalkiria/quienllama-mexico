@@ -10,13 +10,19 @@ class AppVersionService
      */
     const VERSIONS = [
         'android' => [
-            'latest_version' => 9,
-            'latest_version_name' => '1.0.8',
-            'min_version' => 7, // Retrocompatibilidad: versiones 7 y 8 pueden seguir usándose con aviso suave
+            'latest_version' => 16,
+            'latest_version_name' => '1.1.4',
+            'min_version' => 12, // Retrocompatibilidad: versiones 12, 13 y 14 (Play Store) pueden seguir usándose con aviso suave. Versiones < 12 obligadas a actualizar.
             'update_url' => 'https://play.google.com/store/apps/details?id=com.walkiria.quienllama',
             'title' => 'Nueva versión disponible',
             'message' => 'Actualiza QuiénLlama para seguir disfrutando de la máxima protección contra llamadas de spam y números sospechosos.',
             'history' => [
+                16 => ['name' => '1.1.4', 'date' => '2026-09-24', 'notes' => 'Icono nativo nítido en notificaciones y barra de estado, indicador de carga animado en historial y menú contextual para copiar y buscar números'],
+                15 => ['name' => '1.1.4', 'date' => '2026-09-24', 'notes' => 'Menú contextual, feedback de carga e icono de notificación nativo'],
+                14 => ['name' => '1.1.3', 'date' => '2026-09-18', 'notes' => 'Mejoras en prefijos internacionales y aviso de filtro spam'],
+                13 => ['name' => '1.1.2', 'date' => '2026-09-15', 'notes' => 'Refresco reactivo instantáneo tras reporte y claridad en llamadas interceptadas'],
+                12 => ['name' => '1.1.1', 'date' => '2026-09-13', 'notes' => 'Color negro de alto contraste en campos de texto de reporte de números'],
+                11 => ['name' => '1.1.0', 'date' => '2026-09-12', 'notes' => 'Optimización y carga de historial de llamadas, tarjetas compactas multifila y botones de alto contraste'],
                 10 => ['name' => '1.0.9', 'date' => '2026-09-10', 'notes' => 'Scroll vertical unificado en toda la app, solución a botones cortados en Paywall e Historial, y nuevas series de telemarketing'],
                 9 => ['name' => '1.0.8', 'date' => '2026-09-08', 'notes' => 'Consentimiento GDPR europeo (Google UMP), inicialización AdMob, corrección de sincronización delta y 520 números spam'],
                 8 => ['name' => '1.0.7', 'date' => '2026-09-07', 'notes' => 'Registro de llamadas (READ_CALL_LOG), bloqueo local permanente y selector rápido de recientes'],
