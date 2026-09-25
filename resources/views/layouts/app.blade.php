@@ -9,13 +9,20 @@
     <meta name="apple-mobile-web-app-title" content="QuiénLlama México">
     <link rel="canonical" href="{{ url()->current() }}">
 
-    @if(request()->is('/') || request()->is('bloquear-spam*') || request()->is('sobre-*') || request()->is('contacto*') || request()->is('no-molestar*'))
+    @if(request()->is('/') || request()->is('bloquear-spam*') || request()->is('sobre-*') || request()->is('contacto*') || request()->is('no-molestar*') || request()->is('registro-no-llame*'))
+    @php
+        $isRoot = request()->path() === '/';
+        $esTarget = $isRoot ? '' : (request()->is('bloquear-spam*') ? 'bloquear-spam-vcf/' : (request()->is('sobre-*') ? 'sobre-el-autor/' : (request()->is('contacto*') ? 'contacto/' : 'denunciar-llamadas-spam/')));
+        $mxTarget = $isRoot ? '' : (request()->is('bloquear-spam*') ? 'bloquear-spam-masivo' : (request()->is('sobre-*') ? 'sobre-mi' : (request()->is('contacto*') ? 'contacto' : 'no-molestar')));
+        $clTarget = $isRoot ? '' : (request()->is('bloquear-spam*') ? 'bloquear-spam-masivo' : (request()->is('sobre-*') ? 'sobre-mi' : (request()->is('contacto*') ? 'contacto' : 'no-molestar')));
+        $arTarget = $isRoot ? '' : (request()->is('bloquear-spam*') ? 'bloquear-spam-masivo' : (request()->is('sobre-*') ? 'sobre-mi' : (request()->is('contacto*') ? 'contacto' : 'registro-no-llame')));
+    @endphp
     <!-- Hreflang Internacional QuiénLlama Network -->
-    <link rel="alternate" hreflang="es-ES" href="https://quienllama.com.es/{{ request()->path() === '/' ? '' : (request()->is('bloquear-spam*') ? 'bloquear-spam-vcf/' : (request()->is('sobre-*') ? 'sobre-nosotros/' : (request()->is('contacto*') ? 'contacto/' : ''))) }}">
-    <link rel="alternate" hreflang="es-MX" href="https://mx.quienllama.com.es/{{ request()->path() === '/' ? '' : (request()->is('bloquear-spam*') ? 'bloquear-spam-masivo' : (request()->is('sobre-*') ? 'sobre-mi' : (request()->is('contacto*') ? 'contacto' : (request()->is('no-molestar*') ? 'no-molestar' : '')))) }}">
-    <link rel="alternate" hreflang="es-CL" href="https://cl.quienllama.com.es/{{ request()->path() === '/' ? '' : (request()->is('bloquear-spam*') ? 'bloquear-spam-masivo' : (request()->is('sobre-*') ? 'sobre-mi' : (request()->is('contacto*') ? 'contacto' : (request()->is('no-molestar*') ? 'no-molestar' : '')))) }}">
-    <link rel="alternate" hreflang="es-AR" href="https://ar.quienllama.com.es/{{ request()->path() === '/' ? '' : (request()->is('bloquear-spam*') ? 'bloquear-spam-masivo' : (request()->is('sobre-*') ? 'sobre-mi' : (request()->is('contacto*') ? 'contacto' : (request()->is('no-molestar*') ? 'no-molestar' : '')))) }}">
-    <link rel="alternate" hreflang="x-default" href="https://quienllama.com.es/{{ request()->path() === '/' ? '' : (request()->is('bloquear-spam*') ? 'bloquear-spam-vcf/' : (request()->is('sobre-*') ? 'sobre-nosotros/' : (request()->is('contacto*') ? 'contacto/' : ''))) }}">
+    <link rel="alternate" hreflang="es-ES" href="https://quienllama.com.es/{{ $esTarget }}">
+    <link rel="alternate" hreflang="es-MX" href="https://mx.quienllama.com.es/{{ $mxTarget }}">
+    <link rel="alternate" hreflang="es-CL" href="https://cl.quienllama.com.es/{{ $clTarget }}">
+    <link rel="alternate" hreflang="es-AR" href="https://ar.quienllama.com.es/{{ $arTarget }}">
+    <link rel="alternate" hreflang="x-default" href="https://quienllama.com.es/{{ $esTarget }}">
     @endif
     
     <!-- Open Graph / Facebook / WhatsApp -->
