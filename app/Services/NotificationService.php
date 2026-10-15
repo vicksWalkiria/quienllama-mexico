@@ -36,45 +36,10 @@ class NotificationService
             // Silencioso para no interferir con la petición
         }
 
-        // Si no tiene texto real redactado, no se envía email inmediato (se consolida en el digest)
-        if (!$hasReal) {
-            return true;
-        }
-
-        $adminEmail = config('mail.admin_email') ?: (env('ADMIN_EMAIL') ?: 'victor@walkiriaapps.com');
-        if (empty($adminEmail)) {
-            return false;
-        }
-
-        $formatted = method_exists($phone, 'formatted') ? $phone->formatted() : $phone->number;
-        $dialing = method_exists($phone, 'details') ? $phone->details() : [];
-        $url = route('phone.show', $phone->number);
-        $subject = "[QuiénLlama México - {$source}] Nueva Denuncia Spam: {$formatted}";
-
-        $message = "Se ha reportado un nuevo número en QuiénLlama México 🇲🇽 [Canal: {$source}]\n\n"
-                 . "Teléfono: {$formatted}\n"
-                 . "Formato Internacional: " . ($dialing['international'] ?? '+52' . $phone->number) . "\n"
-                 . "Ubicación / Clave LADA: {$phone->location} (LADA {$phone->area_code})\n"
-                 . "Motivo: {$comment->reason}\n"
-                 . "Autor: {$comment->author_name}\n\n"
-                 . "Comentario:\n"
-                 . "{$comment->content}\n\n"
-                 . "Puntuación de SPAM: {$phone->spam_score}/100\n"
-                 . "URL: {$url}\n"
-                 . "IP Hash: " . ($comment->ip_hash ?? 'N/A') . "\n"
-                 . "Fecha: " . date('d/m/Y H:i:s') . "\n";
-
-        $host = parse_url(config('app.url'), PHP_URL_HOST) ?: 'mx.quienllama.com.es';
-        $headers = "From: noreply@{$host}\r\n"
-                 . "Content-Type: text/plain; charset=UTF-8\r\n"
-                 . "X-Mailer: PHP/" . phpversion() . "\r\n";
-
-        try {
-            return @mail($adminEmail, $subject, $message, $headers);
-        } catch (\Exception $e) {
-            Log::warning("Error sending spam report email: " . $e->getMessage());
-            return false;
-        }
+        // Email en tiempo real desactivado para no saturar Brevo ni enviar correos sueltos.
+        // Todas las denuncias y comentarios de todos los países se consolidan en el digest
+        // único cada 6 horas (daily_digest.php). Telegram sigue recibiendo alertas en vivo si está activo.
+        return true;
     }
 
     /**
