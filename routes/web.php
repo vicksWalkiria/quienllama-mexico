@@ -265,6 +265,10 @@ Route::post('/api/v1/report', function (\Illuminate\Http\Request $request) use (
     return response()->json(['status' => 'success', 'message' => 'Reporte registrado']);
 });
 
+// Números retirados / desindexados a solicitud del titular (Redirect 301 a la home)
+Route::redirect('/8331360418', '/', 301);
+Route::redirect('/numero/8331360418', '/', 301);
+
 // Ficha de teléfono (admite formato directo ej: /1151010080 o /numero/1151010080)
 Route::get('/numero/{number}', [PhoneController::class, 'show']);
 Route::get('/{number}', [PhoneController::class, 'show'])

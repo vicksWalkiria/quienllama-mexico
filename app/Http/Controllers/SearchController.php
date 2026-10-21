@@ -30,6 +30,10 @@ class SearchController extends Controller
         $normalized = MexicoPhoneHelper::normalize($q);
 
         if ($normalized) {
+            if (MexicoPhoneHelper::isRemoved($normalized)) {
+                return redirect()->route('home', [], 301);
+            }
+
             $isNew = !Phone::where('number', $normalized)->exists();
 
             if ($isNew) {

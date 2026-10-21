@@ -12,7 +12,10 @@ class SitemapController extends Controller
     public function index(): Response
     {
         $xml = Cache::remember('sitemap_xml', 3600, function () {
-            $phones = Phone::select('number', 'updated_at')->orderByDesc('updated_at')->get();
+            $phones = Phone::select('number', 'updated_at')
+                ->whereNotIn('number', \App\Services\MexicoPhoneHelper::$removedNumbers)
+                ->orderByDesc('updated_at')
+                ->get();
             $areaCodes = array_keys(AreaCodeService::getAll());
 
             $staticRoutes = [

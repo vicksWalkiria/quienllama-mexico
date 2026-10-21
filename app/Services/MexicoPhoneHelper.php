@@ -132,6 +132,20 @@ class MexicoPhoneHelper
     }
 
     /**
+     * Lista de números retirados / suprimidos a petición expresa del titular (derecho de rectificación/supresión).
+     * Se redirigen permanentemente (301) a la home para desindexación completa de buscadores y no se crean en BD.
+     */
+    public static array $removedNumbers = [
+        '8331360418', // Solicitud rectificación / retirada personal (Ciudad Madero, Tamaulipas)
+    ];
+
+    public static function isRemoved(?string $number): bool
+    {
+        $clean = self::normalize($number);
+        return $clean !== null && in_array($clean, self::$removedNumbers, true);
+    }
+
+    /**
      * Formatea un número de 10 dígitos para lectura visual:
      * Para LADA de 2 dígitos (55, 56, 33, 81): (55) 1234 5678
      * Para LADA de 3 dígitos (222, 664, 442, etc.): (222) 123 4567

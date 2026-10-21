@@ -18,8 +18,8 @@ class PhoneController extends Controller
         // Normalizar entrada a 10 dígitos canónicos IFT
         $clean = MexicoPhoneHelper::normalize($number);
 
-        if (!$clean) {
-            return redirect()->route('home')->with('error', 'El número ingresado no corresponde a un formato válido de teléfono en México (10 dígitos).');
+        if (!$clean || MexicoPhoneHelper::isRemoved($clean)) {
+            return redirect()->route('home', [], 301);
         }
 
         // Si la URL llamada no coincide exactamente con el formato canónico, redirigir 301
@@ -88,8 +88,8 @@ class PhoneController extends Controller
         }
 
         $clean = MexicoPhoneHelper::normalize($number);
-        if (!$clean) {
-            return back()->with('error', 'Número de teléfono inválido.');
+        if (!$clean || MexicoPhoneHelper::isRemoved($clean)) {
+            return redirect()->route('home', [], 301);
         }
 
         $request->validate([
@@ -143,8 +143,8 @@ class PhoneController extends Controller
     public function voteReason(Request $request, string $number): RedirectResponse
     {
         $clean = MexicoPhoneHelper::normalize($number);
-        if (!$clean) {
-            return back();
+        if (!$clean || MexicoPhoneHelper::isRemoved($clean)) {
+            return redirect()->route('home', [], 301);
         }
 
         $request->validate(['reason' => 'required|string|max:100']);
@@ -174,9 +174,12 @@ class PhoneController extends Controller
         return back()->with('success', 'Tu voto ha sido sumado a las estadísticas del número.');
     }
 
-    public function downloadVcf(string $number): Response
+    public function downloadVcf(string $number): Response|RedirectResponse
     {
         $clean = MexicoPhoneHelper::normalize($number);
+        if (!$clean || MexicoPhoneHelper::isRemoved($clean)) {
+            return redirect()->route('home', [], 301);
+        }
         $formatted = MexicoPhoneHelper::format($clean ?? $number);
 
         $vcard = "BEGIN:VCARD\r\n";
