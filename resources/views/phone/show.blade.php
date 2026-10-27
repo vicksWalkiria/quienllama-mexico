@@ -591,6 +591,21 @@
         </div>
     </section>
 
+    <!-- Anuncio AdSense México - Ficha de Teléfono -->
+    <div class="ad-slot-container" style="margin: 1.75rem auto; text-align: center; max-width: 100%; overflow: hidden;">
+        <span style="display: block; font-size: 0.72rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">Publicidad</span>
+        <!-- Mexico -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-8445861106914741"
+             data-ad-slot="9713281945"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
     <!-- Quick Poll Voting Card -->
     <div class="card" style="border: 2px solid var(--primary); background:#ffffff;">
         <div style="display:flex; align-items:center; gap:8px; margin-bottom:0.5rem">
